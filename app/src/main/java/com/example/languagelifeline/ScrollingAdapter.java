@@ -22,12 +22,16 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     private List<String> phrases;
     //private List<>
     private OnNoteListener mOnNoteListener;
+    private String language;
+    private String user;
 
 
     //Constructor that takes the current context and the list of phrases
-    public ScrollingAdapter(Context context, List<String> phrases){
+    public ScrollingAdapter(Context context, List<String> phrases, String language, String user){
         this.phrases= phrases;
         this.context=context;
+        this.language = language;
+        this.user = user;
     }
 
     //Constructor that takes the current context, the list of phrases, and a listener for the buttons in the view
@@ -54,6 +58,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Probably want to change this to a switch at some point
         //Sets each button with a phrase from the phrases list
         if (position == 0 ){
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(0));
             holder.btn2.setText(phrases.get(1));
             holder.btn3.setText(phrases.get(2));
@@ -62,6 +354,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn6.setText(phrases.get(5));
         }
         else if (position == 1){
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(5));
             holder.btn2.setText(phrases.get(4));
             holder.btn3.setText(phrases.get(3));
@@ -70,6 +650,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn6.setText(phrases.get(0));
         }
         else if (position ==2){
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(3));
             holder.btn2.setText(phrases.get(2));
             holder.btn3.setText(phrases.get(1));
@@ -78,6 +946,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn6.setText(phrases.get(5));
         }
         else if (position ==3){
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(2));
             holder.btn2.setText(phrases.get(1));
             holder.btn3.setText(phrases.get(0));
@@ -86,6 +1242,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn6.setText(phrases.get(5));
         }
         else if (position ==4){
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(5));
             holder.btn2.setText(phrases.get(4));
             holder.btn3.setText(phrases.get(0));
@@ -94,6 +1538,294 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn6.setText(phrases.get(3));
         }
         else {
+            switch(language){
+                case "English":
+                    //Set the audio files into the buttons for patients in english
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "French":
+                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                case "Spanish":
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                default:
+                    holder.btn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn8.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn9.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+                    holder.btn10.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                            newMedia.start();
+                        }
+                    });
+            }
             holder.btn1.setText(phrases.get(1));
             holder.btn2.setText(phrases.get(0));
             holder.btn3.setText(phrases.get(4));
@@ -166,98 +1898,249 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
             //Need to find a way to check for the language selected as well as the patient or provider
 
-            //Set the audio files into the buttons
-            //Set the audio files into the buttons
-            btn1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+            if (user == "Patient"){
+                switch(language){
+                    case "English":
+                        //Set the audio files into the buttons for patients in english
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    case "French":
+                        //Set the audio files into the buttons for patients in french, need to change the audio files
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    case "Spanish":
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    default:
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
                 }
-            });
-            btn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+            }
+            else if (user == "Provider"){
+                switch(language){
+                    case "English":
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    case "French":
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    case "Spanish":
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
+                    default:
+                        repeatBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                            }
+                        });
+                        yesBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                                newMedia.start();
+                            }
+                        });
+                        nobtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                                newMedia.start();
+                            }
+                        });
+                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
+                            }
+                        });
                 }
-            });
+            }
 
-            btn3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                }
-            });
-
-            btn4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                }
-            });
-
-            btn5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                }
-            });
-            btn6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                }
-            });
-            btn7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                }
-            });
-            btn8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                }
-            });
-
-            btn9.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                }
-            });
-
-            btn10.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                }
-            });
-            repeatBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                  //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
-                }
-            });
-            yesBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                }
-            });
-            nobtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                }
-            });
-            needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                }
-            });
 
 
            /* btn7 = itemView.findViewById(R.id.btn7);

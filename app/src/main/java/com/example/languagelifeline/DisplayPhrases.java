@@ -26,7 +26,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     public englishPhrases engPhrase;
     private frenchPhrases frenchPhrases;
     private spanishPhrases spanishPhrases;
-
+    public String user;
 
 
     @Override
@@ -34,6 +34,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_main);
         phrases = new ArrayList<>();
+        user = "Patient";
 
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
@@ -71,6 +72,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
+                    user = "Patient";
                     switch (currentLanguage) {
                         case "English":
                             phrases = engPhrase.getEnglishPhrases();
@@ -90,6 +92,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                     };
                 }
                 else if (group.getCheckedButtonId() == R.id.providerBtn){
+                    user = "Provider";
                         switch(currentLanguage){
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
@@ -125,7 +128,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
-        scrollingAdapter = new ScrollingAdapter(this, phrases);
+        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user);
         recyclerViewPhrases.setAdapter(scrollingAdapter);
     }
 
