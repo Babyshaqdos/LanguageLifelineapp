@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layoutLeft"
+        android:layout_width="753dp"
+        android:layout_height="643dp"
+        app:layout_constraintBaseline_toTopOf="@id/toggleGroup"
+        app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/phraseRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_alignParentBottom="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"></androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayoutRight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="@id/layoutLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/phraseRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/patientLangPhrase"
+                android:layout_width="500dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="500dp"
+                android:hint="This box will display the selected phrase in the patients selected language to be played over audio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <TextView
+                android:id="@+id/providerLangPhrase"
+                android:layout_width="500dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="350dp"
+                android:hint="This box will display the selected phrase in the providers language"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patientLangPhrase"></TextView>
+
+            <ImageButton
+                android:id="@+id/repeatButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="300dp"
+                android:src="@mipmap/repeat"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/providerLangPhrase"></ImageButton>
+
+            <Button
+                android:id="@+id/didntMeanToBtn"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="200dp"
+                android:hint="I didn't mean to say that (in currently selected language)"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repeatButton">
+
+            </Button>
+
+
+            <GridLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/didntMeanToBtn">
+
+                <Button
+                    android:id="@+id/answerNobtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_marginLeft="100dp"
+                    android:paddingLeft="30dp"
+                    android:scaleType="fitCenter"
+                    android:text="No"
+                    android:textColor="#FFFFFF"></Button>
+
+                <Button
+                    android:id="@+id/answerYesbtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginRight="100dp"
+                    android:scaleType="fitCenter"
+                    android:text="Yes"
+                    android:textColor="#FFFFFF"></Button>
+
+                <Button
+                    android:id="@+id/dontUnderstandBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_marginRight="100dp"
+                    android:scaleType="fitCenter"
+                    android:text="I dont understand"
+                    android:textColor="#FFFFFF"></Button>
+
+                <Button
+                    android:id="@+id/needInterpreter"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_marginLeft="100dp"
+                    android:scaleType="fitCenter"
+                    android:text="I need an interpreter"
+                    android:textColor="#FFFFFF"></Button>
+
+
+            </GridLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/homeBtn"
+            android:layout_width="500dp"
+            android:layout_height="73dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="Home" />
+
+
+    </GridLayout>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/gridLayoutRight"
+        app:checkedButton="@id/patientBtn"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/patientBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Patient" />
+
+        <Button
+            android:id="@+id/providerBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Provider" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
