@@ -54,7 +54,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         final Utils toasty = new Utils();
         //Debugging message
         //toasty.showToast(context, "Our position value is " + position);
-
         //Probably want to change this to a switch at some point
         //Sets each button with a phrase from the phrases list
         if (position == 0 ){
@@ -434,6 +433,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(3));
             holder.btn5.setText(phrases.get(4));
             holder.btn6.setText(phrases.get(5));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         else if (position == 1){
             switch(language){
@@ -812,6 +815,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(2));
             holder.btn5.setText(phrases.get(1));
             holder.btn6.setText(phrases.get(0));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         else if (position ==2){
             switch(language){
@@ -1190,6 +1197,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(0));
             holder.btn5.setText(phrases.get(4));
             holder.btn6.setText(phrases.get(5));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         else if (position ==3){
             switch(language){
@@ -1568,6 +1579,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(3));
             holder.btn5.setText(phrases.get(4));
             holder.btn6.setText(phrases.get(5));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         else if (position ==4){
             switch(language){
@@ -1946,6 +1961,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(1));
             holder.btn5.setText(phrases.get(2));
             holder.btn6.setText(phrases.get(3));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         else {
             switch(language){
@@ -2324,11 +2343,13 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             holder.btn4.setText(phrases.get(2));
             holder.btn5.setText(phrases.get(3));
             holder.btn6.setText(phrases.get(5));
+            holder.btn7.setText(phrases.get(0));
+            holder.btn8.setText(phrases.get(1));
+            holder.btn9.setText(phrases.get(2));
+            holder.btn10.setText(phrases.get(3));
         }
         //Want to look into getting a list of the images to iterate through
         // holder.img1.setImageDrawable();
-
-
     }
 
     @Override //Gets a count of the number of phrases passed into viewholder, may want to change to return number of buttons instantiated but for now this will work (function may not even be used)
@@ -2377,8 +2398,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             btn8 = itemView.findViewById(R.id.btn8);
             btn9 = itemView.findViewById(R.id.btn9);
             btn10 = itemView.findViewById(R.id.btn10);
-            patientTranslation = itemView.findViewById(R.id.patientBtn);
-            providerTranslation = itemView.findViewById(R.id.providerBtn);
+            patientTranslation = itemView.findViewById(R.id.patientLangPhrase);
+            providerTranslation = itemView.findViewById(R.id.providerLangPhrase);
             repeatBtn = itemView.findViewById(R.id.repeatButton);
             nobtn = itemView.findViewById(R.id.answerNobtn);
             yesBtn = itemView.findViewById(R.id.answerYesbtn);
@@ -2398,7 +2419,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                  MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                  newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2428,7 +2450,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2457,7 +2480,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2486,7 +2510,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2519,7 +2544,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2548,7 +2574,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2577,7 +2604,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2606,7 +2634,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                             @Override
                             public void onClick(View view) {
                                 //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
+                                newMedia.start();
                             }
                         });
                         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -2633,17 +2662,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                 }
             }
 
-
-
-           /* btn7 = itemView.findViewById(R.id.btn7);
-            img1 = itemView.findViewById(R.id.img1);
-            img2 = itemView.findViewById(R.id.img2);
-            img3 = itemView.findViewById(R.id.img3);
-            img4 = itemView.findViewById(R.id.img4);
-            img5 = itemView.findViewById(R.id.img5);
-            img6 = itemView.findViewById(R.id.img6);
-            img7 = itemView.findViewById(R.id.img7);
-*/
         }
         @Override
         public void onClick(View view) {

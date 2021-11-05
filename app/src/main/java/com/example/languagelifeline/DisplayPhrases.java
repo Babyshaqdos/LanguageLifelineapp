@@ -27,7 +27,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     private frenchPhrases frenchPhrases;
     private spanishPhrases spanishPhrases;
     public String user;
-
+    final Utils toasty = new Utils();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
+                    toasty.showToast(group.getContext(), "Debug message, patient is checked");
                     user = "Patient";
                     switch (currentLanguage) {
                         case "English":
@@ -92,6 +93,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                     };
                 }
                 else if (group.getCheckedButtonId() == R.id.providerBtn){
+                    toasty.showToast(group.getContext(), "Debug message, provider is checked");
                     user = "Provider";
                         switch(currentLanguage){
                             case "English":

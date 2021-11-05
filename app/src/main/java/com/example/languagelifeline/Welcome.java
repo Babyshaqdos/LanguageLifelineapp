@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 //This is your main class that is called when the application is started
 public class Welcome extends AppCompatActivity {
+    final Utils toasty = new Utils();
 
     //All classes that contain the code to display the UI will need to have an onCreate method
     @Override
@@ -26,6 +28,7 @@ public class Welcome extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
                 intent.putExtra("Language", "English");
+                toasty.showToast(view.getContext(), "English button debug msg");
                 startActivity(intent);
             }
         });
