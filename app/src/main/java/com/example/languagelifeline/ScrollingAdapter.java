@@ -45,7 +45,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Utils toasty = new Utils();
         //Debugging message
-        toasty.showToast(context, "Our position value is " + position);
+        //toasty.showToast(context, "Our position value is " + position);
 
         //Probably want to change this to a switch at some point
         //Sets each button with a phrase from the phrases list
