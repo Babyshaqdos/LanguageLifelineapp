@@ -141,16 +141,44 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             btn6 = itemView.findViewById(R.id.btn6);
 
             //Set the audio files into the buttons
+            //Set the audio files into the buttons
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                  //  MediaPlayer newMedia = MediaPlayer.create(this, R.raw.sample1);
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                 }
             });
             btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                  //  MediaPlayer newMedi2 = MediaPlayer.create(this, R.raw.sample2);
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
+                }
+            });
+
+            btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                }
+            });
+
+            btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                }
+            });
+
+            btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
+                }
+            });
+            btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                 }
             });
 

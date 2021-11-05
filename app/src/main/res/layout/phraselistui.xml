@@ -18,7 +18,7 @@
             android:id="@+id/btn1"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:drawableLeft="@mipmap/restroom"
+            android:drawableLeft="@drawable/restroom"
             android:scaleType="fitCenter"
             android:text="I need to use the restroom"
             android:textColor="#FFFFFF"></Button>
