@@ -66,6 +66,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +75,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +84,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +93,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +102,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +111,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +120,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +129,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +138,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -129,15 +147,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +167,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +176,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +185,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +194,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +203,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +212,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -187,6 +221,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -194,6 +230,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -201,14 +239,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -216,6 +259,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +268,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +277,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -237,6 +286,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +295,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -251,6 +304,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -258,6 +313,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -265,6 +322,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -272,14 +331,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -287,6 +351,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -294,6 +360,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -301,6 +369,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -308,6 +378,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -315,6 +387,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -322,6 +396,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -329,6 +405,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -336,6 +414,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -343,6 +423,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
@@ -362,6 +444,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -369,6 +453,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -376,6 +462,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -383,6 +471,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -390,6 +480,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -397,6 +489,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -404,6 +498,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -411,6 +507,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -418,6 +516,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -425,15 +525,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -441,6 +545,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -448,6 +554,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -455,6 +563,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -462,6 +572,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -469,6 +581,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -476,6 +590,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -483,6 +599,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -490,6 +608,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -497,14 +617,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -512,6 +637,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -519,6 +646,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -526,6 +655,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -533,6 +664,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -540,6 +673,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -547,6 +682,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -554,6 +691,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -561,6 +700,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -568,14 +709,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -583,6 +729,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -590,6 +738,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -597,6 +747,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -604,6 +756,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -611,6 +765,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -618,6 +774,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -625,6 +783,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -632,6 +792,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -639,6 +801,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
@@ -658,6 +822,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -665,6 +831,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -672,6 +840,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -679,6 +849,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -686,6 +858,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -693,6 +867,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -700,6 +876,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -707,6 +885,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -714,6 +894,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -721,15 +903,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -737,6 +923,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -744,6 +932,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -751,6 +941,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -758,6 +950,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -765,6 +959,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -772,6 +968,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -779,6 +977,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -786,6 +986,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -793,14 +995,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -808,6 +1015,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -815,6 +1024,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -822,6 +1033,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -829,6 +1042,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -836,6 +1051,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -843,6 +1060,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -850,6 +1069,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -857,6 +1078,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -864,14 +1087,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -879,6 +1107,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -886,6 +1116,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -893,6 +1125,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -900,6 +1134,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -907,6 +1143,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -914,6 +1152,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -921,6 +1161,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -928,6 +1170,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -935,6 +1179,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
@@ -954,6 +1200,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -961,6 +1209,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -968,6 +1218,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -975,6 +1227,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -982,6 +1236,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -989,6 +1245,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -996,6 +1254,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1003,6 +1263,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1010,6 +1272,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1017,15 +1281,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1033,6 +1301,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1040,6 +1310,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1047,6 +1319,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1054,6 +1328,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1061,6 +1337,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1068,6 +1346,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1075,6 +1355,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1082,6 +1364,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1089,14 +1373,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1104,6 +1393,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1111,6 +1402,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1118,6 +1411,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1125,6 +1420,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1132,6 +1429,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1139,6 +1438,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1146,6 +1447,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1153,6 +1456,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1160,14 +1465,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1175,6 +1485,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1182,6 +1494,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1189,6 +1503,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1196,6 +1512,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1203,6 +1521,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1210,6 +1530,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1217,6 +1539,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1224,6 +1548,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1231,6 +1557,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
@@ -1250,6 +1578,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1257,6 +1587,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1264,6 +1596,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1271,6 +1605,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1278,6 +1614,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1285,6 +1623,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1292,6 +1632,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1299,6 +1641,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1306,6 +1650,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1313,15 +1659,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1329,6 +1679,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1336,6 +1688,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1343,6 +1697,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1350,6 +1706,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1357,6 +1715,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1364,6 +1724,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1371,6 +1733,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1378,6 +1742,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1385,14 +1751,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1400,6 +1771,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1407,6 +1780,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1414,6 +1789,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1421,6 +1798,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1428,6 +1807,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1435,6 +1816,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1442,6 +1825,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1449,6 +1834,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1456,14 +1843,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1471,6 +1863,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1478,6 +1872,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1485,6 +1881,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1492,6 +1890,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1499,6 +1899,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1506,6 +1908,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1513,6 +1917,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1520,6 +1926,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1527,6 +1935,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
@@ -1546,6 +1956,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1553,6 +1965,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1560,6 +1974,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1567,6 +1983,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1574,6 +1992,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1581,6 +2001,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1588,6 +2010,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1595,6 +2019,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1602,6 +2028,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1609,15 +2037,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "French":
-                    //Set the audio files into the buttons for patients in french, need to change the audio files
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1625,6 +2057,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1632,6 +2066,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1639,6 +2075,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1646,6 +2084,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1653,6 +2093,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1660,6 +2102,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1667,6 +2111,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1674,6 +2120,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1681,14 +2129,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 case "Spanish":
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1696,6 +2149,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1703,6 +2158,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1710,6 +2167,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1717,6 +2176,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1724,6 +2185,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1731,6 +2194,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1738,6 +2203,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1745,6 +2212,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1752,14 +2221,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
                 default:
+                    //Set the audio files into the buttons for patients in english
                     holder.btn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(0));
+                            holder.providerTranslation.setText(phrases.get(0));
                         }
                     });
                     holder.btn2.setOnClickListener(new View.OnClickListener() {
@@ -1767,6 +2241,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(1));
+                            holder.providerTranslation.setText(phrases.get(1));
                         }
                     });
                     holder.btn3.setOnClickListener(new View.OnClickListener() {
@@ -1774,6 +2250,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(2));
+                            holder.providerTranslation.setText(phrases.get(2));
                         }
                     });
                     holder.btn4.setOnClickListener(new View.OnClickListener() {
@@ -1781,6 +2259,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(3));
+                            holder.providerTranslation.setText(phrases.get(3));
                         }
                     });
                     holder.btn5.setOnClickListener(new View.OnClickListener() {
@@ -1788,6 +2268,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(4));
+                            holder.providerTranslation.setText(phrases.get(4));
                         }
                     });
                     holder.btn6.setOnClickListener(new View.OnClickListener() {
@@ -1795,6 +2277,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(5));
+                            holder.providerTranslation.setText(phrases.get(5));
                         }
                     });
                     holder.btn7.setOnClickListener(new View.OnClickListener() {
@@ -1802,6 +2286,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(6));
+                            holder.providerTranslation.setText(phrases.get(6));
                         }
                     });
                     holder.btn8.setOnClickListener(new View.OnClickListener() {
@@ -1809,6 +2295,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(7));
+                            holder.providerTranslation.setText(phrases.get(7));
                         }
                     });
                     holder.btn9.setOnClickListener(new View.OnClickListener() {
@@ -1816,6 +2304,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(8));
+                            holder.providerTranslation.setText(phrases.get(8));
                         }
                     });
                     holder.btn10.setOnClickListener(new View.OnClickListener() {
@@ -1823,6 +2313,8 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                         public void onClick(View view) {
                             MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
                             newMedia.start();
+                            holder.patientTranslation.setText(phrases.get(9));
+                            holder.providerTranslation.setText(phrases.get(9));
                         }
                     });
             }
