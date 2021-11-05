@@ -5,6 +5,7 @@ import java.util.List;
 
 public class englishPhrases {
     private List<String> englishPhrases;
+    private List<String> providerPhrases;
 
 
     //Constructor to set the local phrases as the passed in engPhrases (may not be useful for now but may come in handy for the addition of phrases later)
@@ -15,6 +16,7 @@ public class englishPhrases {
     //Constructor that intializes the englishPhrases arraylist
     public englishPhrases(){
         englishPhrases = new ArrayList<>();
+        providerPhrases = new ArrayList<>();
         //We need to add code here to populate the phrase list
         //Go phrase by phrase and add them like so
         englishPhrases.add("I need to use the restroom");
@@ -27,7 +29,7 @@ public class englishPhrases {
     }
 
     //Function to add phrase from another class
-    public void addPhrase(String newPhrase){
+    public void addPhrasePatient(String newPhrase){
         englishPhrases.add((newPhrase));
     }
 
@@ -37,5 +39,12 @@ public class englishPhrases {
     }
 
 
+    public void addPhraseProvider(String newPhrase){
+        providerPhrases.add(newPhrase);
+    }
+
+    public List<String> getProviderPhrases(){
+        return providerPhrases;
+    }
 
 }

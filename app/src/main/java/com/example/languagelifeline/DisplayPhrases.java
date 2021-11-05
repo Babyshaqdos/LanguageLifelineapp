@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.button.MaterialButtonToggleGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,43 +23,92 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     private GridLayout gridLayoutRight;
     public List<String> phrases;
     public String currentLanguage;
+    public englishPhrases engPhrase;
+    private frenchPhrases frenchPhrases;
+    private spanishPhrases spanishPhrases;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.final_layout);
+        setContentView(R.layout.ui_main);
         phrases = new ArrayList<>();
 
-        englishPhrases engPhrase = new englishPhrases();
-        frenchPhrases frenchPhrases = new frenchPhrases();
-        spanishPhrases spanishPhrases = new spanishPhrases();
+        engPhrase = new englishPhrases();
+        frenchPhrases = new frenchPhrases();
+        spanishPhrases = new spanishPhrases();
 
-        Intent receivingIntent = getIntent(); //The getIntent() method will grab the last intent that was passed into this class and assign it to our new intent
+        Intent receivingIntent = getIntent();
+        //The getIntent() method will grab the last intent that was passed into this class and assign it to our new intent
        /* String variable1 = receivingIntent.getStringExtra("FirstVariableStringValue"); //The name must exactly match the name you gave it in the prior class or else it wont find the value
         Integer variable2 = receivingIntent.getIntExtra("SecondVariableIntValue", 0); //Same functionality as line above but showing how you can get different data types from the same intent
         */
 
-
-
-
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
 
-        switch(currentLanguage){
-            case "English":
-                phrases = engPhrase.getEnglishPhrases();
-                break;
-            case "French":
-                phrases = frenchPhrases.getFrenchPhrases();
-                break;
-            case "Spanish":
-                phrases = spanishPhrases.getSpanishPhrases();
-                break;
-            default:
-                phrases = engPhrase.getEnglishPhrases();
-        }
+
+        //Instantiate the button to send the user back to the home page to select a new language
+        Button homeBtn = (Button)findViewById(R.id.homeBtn);
+
+        //Set the listener for the button
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create the intent and send the user back to the Welcome class (home screen)
+                Intent homeIntent = new Intent(view.getContext(), Welcome.class);
+                startActivity(homeIntent);
+            }
+        });
+
+        MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup)findViewById(R.id.toggleGroup);
+        int buttonToggle = materialButtonToggleGroup.getCheckedButtonId();
+        MaterialButton patientBtn = materialButtonToggleGroup.findViewById(R.id.patientBtn);
+        MaterialButton providerBtn = materialButtonToggleGroup.findViewById(R.id.providerBtn);
+
+        materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
+            @Override
+            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+                if (isChecked){
+                    if(checkedId == R.id.patientBtn){
+                        //populate phrases with patients phrases
+                        //Checks the valaue of currentLanguage and populates the phrases with the appropriate language, if no language selected or not recognizable enlgish is set as default
+                        switch(currentLanguage){
+                            case "English":
+                                phrases = engPhrase.getEnglishPhrases();
+                                break;
+                            case "French":
+                                phrases = frenchPhrases.getFrenchPhrases();
+                                break;
+                            case "Spanish":
+                                phrases = spanishPhrases.getSpanishPhrases();
+                                break;
+                            default:
+                                phrases = engPhrase.getEnglishPhrases();
+                        }
+
+                    }
+                    else if (checkedId == R.id.providerBtn){
+                        //populate phrases with provider phrases
+                        //Checks the valaue of currentLanguage and populates the phrases with the appropriate language, if no language selected or not recognizable enlgish is set as default
+                        switch(currentLanguage){
+                            case "English":
+                                phrases = engPhrase.getProviderPhrases();
+                                break;
+                            case "French":
+                                phrases = frenchPhrases.getProviderPhrases();
+                                break;
+                            case "Spanish":
+                                phrases = spanishPhrases.getProviderPhrases();
+                                break;
+                            default:
+                                phrases = engPhrase.getProviderPhrases();
+                        }
+                    }
+                }
+            }
+        });
 
 
         //Set a layout manager for the recycler view and populate the view with the phrases
@@ -68,18 +120,11 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
         scrollingAdapter = new ScrollingAdapter(this, phrases);
         recyclerViewPhrases.setAdapter(scrollingAdapter);
-        
-        Button homeBtn = (Button)findViewById(R.id.homeBtn);
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 
     }
+
 
     @Override
     public String getLanguage(String language) {

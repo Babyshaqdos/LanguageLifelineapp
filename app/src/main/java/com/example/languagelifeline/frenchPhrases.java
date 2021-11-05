@@ -5,6 +5,7 @@ import java.util.List;
 
 public class frenchPhrases {
     private List<String> frenchPhrases;
+    private List<String> providerPhrases;
 
 
     public frenchPhrases(List<String> phrases){
@@ -14,9 +15,18 @@ public class frenchPhrases {
 
     public frenchPhrases(){
         frenchPhrases = new ArrayList<>();
+        providerPhrases = new ArrayList<>();
 
     }
 
+
+    public void addProviderPhrase(String phrase){
+        providerPhrases.add(phrase);
+    }
+
+    public List<String> getProviderPhrases() {
+        return providerPhrases;
+    }
 
     public void addPhrases(String phrase){
         frenchPhrases.add(phrase);
