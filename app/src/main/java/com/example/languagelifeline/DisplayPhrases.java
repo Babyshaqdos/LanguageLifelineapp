@@ -47,7 +47,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
-
+        setLanguage(currentLanguage);
 
         //Instantiate the button to send the user back to the home page to select a new language
         Button homeBtn = (Button)findViewById(R.id.homeBtn);
@@ -63,54 +63,61 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         });
 
         MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup)findViewById(R.id.toggleGroup);
-        int buttonToggle = materialButtonToggleGroup.getCheckedButtonId();
+        int checkedId = materialButtonToggleGroup.getCheckedButtonId();
         MaterialButton patientBtn = materialButtonToggleGroup.findViewById(R.id.patientBtn);
         MaterialButton providerBtn = materialButtonToggleGroup.findViewById(R.id.providerBtn);
 
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-                if (isChecked){
-                    if(checkedId == R.id.patientBtn){
-                        //populate phrases with patients phrases
-                        //Checks the valaue of currentLanguage and populates the phrases with the appropriate language, if no language selected or not recognizable enlgish is set as default
-                        switch(currentLanguage){
-                            case "English":
-                                phrases = engPhrase.getEnglishPhrases();
-                                break;
-                            case "French":
-                                phrases = frenchPhrases.getFrenchPhrases();
-                                break;
-                            case "Spanish":
-                                phrases = spanishPhrases.getSpanishPhrases();
-                                break;
-                            default:
-                                phrases = engPhrase.getEnglishPhrases();
-                        }
-
-                    }
-                    else if (checkedId == R.id.providerBtn){
-                        //populate phrases with provider phrases
-                        //Checks the valaue of currentLanguage and populates the phrases with the appropriate language, if no language selected or not recognizable enlgish is set as default
+                if (group.getCheckedButtonId() == R.id.patientBtn) {
+                    switch (currentLanguage) {
+                        case "English":
+                            phrases = engPhrase.getEnglishPhrases();
+                            setRecyclerViewPhrases();
+                            break;
+                        case "French":
+                            phrases = frenchPhrases.getFrenchPhrases();
+                            setRecyclerViewPhrases();
+                            break;
+                        case "Spanish":
+                            phrases = spanishPhrases.getSpanishPhrases();
+                            setRecyclerViewPhrases();
+                            break;
+                        default:
+                            phrases = engPhrase.getEnglishPhrases();
+                            setRecyclerViewPhrases();
+                    };
+                }
+                else if (group.getCheckedButtonId() == R.id.providerBtn){
                         switch(currentLanguage){
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
+                                setRecyclerViewPhrases();
                                 break;
                             case "French":
                                 phrases = frenchPhrases.getProviderPhrases();
+                                setRecyclerViewPhrases();
                                 break;
                             case "Spanish":
                                 phrases = spanishPhrases.getProviderPhrases();
+                                setRecyclerViewPhrases();
                                 break;
                             default:
                                 phrases = engPhrase.getProviderPhrases();
-                        }
-                    }
-                }
-            }
-        });
+                                setRecyclerViewPhrases();
+                        };
+                    };
+                };
+            });
 
 
+
+
+
+    }
+
+    public void setRecyclerViewPhrases(){
         //Set a layout manager for the recycler view and populate the view with the phrases
         recyclerViewPhrases = findViewById(R.id.phraseRecycler);
         recyclerViewPhrases.setHasFixedSize(true);
@@ -120,11 +127,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
         scrollingAdapter = new ScrollingAdapter(this, phrases);
         recyclerViewPhrases.setAdapter(scrollingAdapter);
-
-
-
     }
-
 
     @Override
     public String getLanguage(String language) {
@@ -135,7 +138,23 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     @Override
     public void setLanguage(String language) {
-
+        switch (language) {
+            case "English":
+                phrases = engPhrase.getEnglishPhrases();
+                setRecyclerViewPhrases();
+                break;
+            case "French":
+                phrases = frenchPhrases.getFrenchPhrases();
+                setRecyclerViewPhrases();
+                break;
+            case "Spanish":
+                phrases = spanishPhrases.getSpanishPhrases();
+                setRecyclerViewPhrases();
+                break;
+            default:
+                phrases = engPhrase.getEnglishPhrases();
+                setRecyclerViewPhrases();
+        }
     }
 
     @Override

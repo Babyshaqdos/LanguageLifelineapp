@@ -1,12 +1,16 @@
 package com.example.languagelifeline;
 
+import android.media.Image;
 import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.content.Context;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -114,19 +118,25 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Instantiate all of our buttons and imageviews
         OnNoteListener onNoteListener;
         public Button btn1;
-        public ImageView img1;
         public Button btn2;
-        public ImageView img2;
         public Button btn3;
-        public ImageView img3;
         public Button btn4;
-        public ImageView img4;
         public Button btn5;
-        public ImageView img5;
         public Button btn6;
-        public ImageView img6;
         public Button btn7;
-        public ImageView img7;
+        public Button btn8;
+        public Button btn9;
+        public Button btn10;
+        public TextView patientTranslation;
+        public TextView providerTranslation;
+        public ImageButton repeatBtn;
+        public Button didntMeanBtn;
+        public Button yesBtn;
+        public Button nobtn;
+        public Button dontunderstandbtn;
+        public Button needTranslatorbtn;
+
+
 
         //Constructor that is called when class is created, sets the listener and the elements in the view
         public ViewHolder(@NonNull View itemView, OnNoteListener listener) {
@@ -139,6 +149,22 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             btn4 = itemView.findViewById(R.id.btn4);
             btn5 = itemView.findViewById(R.id.btn5);
             btn6 = itemView.findViewById(R.id.btn6);
+            btn7 = itemView.findViewById(R.id.btn7);
+            btn8 = itemView.findViewById(R.id.btn8);
+            btn9 = itemView.findViewById(R.id.btn9);
+            btn10 = itemView.findViewById(R.id.btn10);
+            patientTranslation = itemView.findViewById(R.id.patientBtn);
+            providerTranslation = itemView.findViewById(R.id.providerBtn);
+            repeatBtn = itemView.findViewById(R.id.repeatButton);
+            nobtn = itemView.findViewById(R.id.answerNobtn);
+            yesBtn = itemView.findViewById(R.id.answerYesbtn);
+            dontunderstandbtn = itemView.findViewById(R.id.dontUnderstandBtn);
+            didntMeanBtn = itemView.findViewById(R.id.didntMeanToBtn);
+            needTranslatorbtn = itemView.findViewById(R.id.needInterpreter);
+
+
+
+            //Need to find a way to check for the language selected as well as the patient or provider
 
             //Set the audio files into the buttons
             //Set the audio files into the buttons
@@ -181,6 +207,58 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
                 }
             });
+            btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                }
+            });
+            btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                }
+            });
+
+            btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                }
+            });
+
+            btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
+                }
+            });
+            repeatBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
+                  //  MediaPlayer newMedia = MediaPlayer.create(view.getContext(), )
+                }
+            });
+            yesBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
+                }
+            });
+            nobtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
+                }
+            });
+            needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
+                }
+            });
+
 
            /* btn7 = itemView.findViewById(R.id.btn7);
             img1 = itemView.findViewById(R.id.img1);
