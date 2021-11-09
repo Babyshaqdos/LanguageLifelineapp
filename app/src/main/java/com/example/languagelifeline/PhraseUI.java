@@ -5,7 +5,7 @@ public interface PhraseUI {
     //My thinking here is having 1 interface that is then reimplemented multiple times, once for each language.
 
 
-
+    //void setButton();
 
 
     //Getter and Setter for the language used, may not need the getter depending on how intents are used but leaving here for now

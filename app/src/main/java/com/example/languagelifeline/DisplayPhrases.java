@@ -63,17 +63,23 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             }
         });
 
+        //Instantiate the switch at the bottom of the UI that converts the phrases from patient phrases to provider phrases
         MaterialButtonToggleGroup materialButtonToggleGroup = (MaterialButtonToggleGroup)findViewById(R.id.toggleGroup);
         int checkedId = materialButtonToggleGroup.getCheckedButtonId();
         MaterialButton patientBtn = materialButtonToggleGroup.findViewById(R.id.patientBtn);
         MaterialButton providerBtn = materialButtonToggleGroup.findViewById(R.id.providerBtn);
 
+
+        //Add the onclick listener to the switch
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
+                //Checks which button is checked and populates the button phrases based on the switch position
+                //Default position is the patient
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
                     toasty.showToast(group.getContext(), "Debug message, patient is checked");
                     user = "Patient";
+                    //Checks the current language then populates the buttons with the appropriate language phrases
                     switch (currentLanguage) {
                         case "English":
                             phrases = engPhrase.getEnglishPhrases();
