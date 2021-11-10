@@ -28,7 +28,7 @@ public class Welcome extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
                 intent.putExtra("Language", "English");
-                toasty.showToast(view.getContext(), "English button debug msg");
+              //  toasty.showToast(view.getContext(), "English button debug msg");
                 startActivity(intent);
             }
         });

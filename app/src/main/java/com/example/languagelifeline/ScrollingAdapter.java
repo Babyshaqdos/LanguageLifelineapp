@@ -67,7 +67,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -80,7 +80,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -93,7 +93,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -106,7 +106,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -120,7 +120,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -134,7 +134,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -147,7 +147,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -161,7 +161,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -175,7 +175,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -189,7 +189,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -204,7 +204,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -217,7 +217,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -230,7 +230,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -243,7 +243,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -257,7 +257,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -271,7 +271,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -284,7 +284,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -298,7 +298,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -312,7 +312,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -326,7 +326,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -341,7 +341,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -354,7 +354,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -367,7 +367,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -380,7 +380,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -394,7 +394,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -408,7 +408,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -421,7 +421,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -435,7 +435,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -449,7 +449,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -463,7 +463,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -478,7 +478,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -491,7 +491,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -504,7 +504,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -517,7 +517,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -531,7 +531,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -545,7 +545,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -558,7 +558,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -572,7 +572,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -586,7 +586,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -600,7 +600,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -615,7 +615,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -628,7 +628,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -641,7 +641,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -654,7 +654,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -668,7 +668,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -682,7 +682,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -695,7 +695,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -709,7 +709,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -723,7 +723,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -737,7 +737,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -752,7 +752,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(0));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -765,7 +765,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(1));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(1));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -778,7 +778,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(2));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(2));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -791,7 +791,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(3));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(3));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -805,7 +805,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(4));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(4));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -819,7 +819,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(5));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(5));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -832,7 +832,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(6));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(6));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -846,7 +846,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(7));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(7));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -860,7 +860,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(8));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(8));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
 
                 }
@@ -874,7 +874,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                     Intent intent = new Intent(context, DisplayPhrases.class);
                     intent.putExtra("PatientPhrase", phrases.get(9));
                     intent.putExtra("ProviderPhrase", providerPhrases.get(9));
-                    intent.putExtra("Language", "English");
+                    intent.putExtra("Language", language);
                     context.startActivity(intent);
                 }
             });
@@ -932,8 +932,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             btn8 = itemView.findViewById(R.id.btn8);
             btn9 = itemView.findViewById(R.id.btn9);
             btn10 = itemView.findViewById(R.id.btn10);
-       //     this.patientTranslation = (TextView)itemView.findViewById(R.id.patientPhrase);
-        //    this.providerTranslation = (TextView)itemView.findViewById(R.id.providerLangPhrase);
 
 
         }
