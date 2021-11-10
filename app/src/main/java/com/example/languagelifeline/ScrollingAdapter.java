@@ -1,15 +1,12 @@
 package com.example.languagelifeline;
 
-import android.media.Image;
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.content.Context;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,24 +17,27 @@ import java.util.List;
 public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.ViewHolder> {
     private Context context;
     private List<String> phrases;
+    private List<String> providerPhrases;
     private OnNoteListener mOnNoteListener;
     private String language;
     private String user;
+    String newPhraseglobal = "";
 
 
     //Constructor that takes the current context and the list of phrases
-    public ScrollingAdapter(Context context, List<String> phrases, String language, String user){
+    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases){
         this.phrases= phrases;
         this.context=context;
         this.language = language;
         this.user = user;
+        this.providerPhrases = providerPhrases;
     }
 
     //Constructor that takes the current context, the list of phrases, and a listener for the buttons in the view
     public ScrollingAdapter(Context context, List<String> phrases, OnNoteListener listener){
         this.phrases = phrases;
         this.context = context;
-        this.mOnNoteListener = listener;
+        mOnNoteListener = listener;
     }
 
     @NonNull
@@ -51,1917 +51,833 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     @Override //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Utils toasty = new Utils();
+        String newPhrase;
         //Debugging message
-        //toasty.showToast(context, "Our position value is " + position);
+      //  toasty.showToast(context, "Our position value is " + position);
         //Probably want to change this to a switch at some point
+
         //Sets each button with a phrase from the phrases list
         if (position == 0 ){
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
             holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
             holder.btn2.setText(phrases.get(1));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
             holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
             holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
             holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
             holder.btn6.setText(phrases.get(5));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
         }
         else if (position == 1){
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
+            holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn2.setText(phrases.get(1));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
+                }
+            });
+            holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
+                }
+            });
+            holder.btn6.setText(phrases.get(5));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
-            holder.btn1.setText(phrases.get(5));
-            holder.btn2.setText(phrases.get(4));
-            holder.btn3.setText(phrases.get(3));
-            holder.btn4.setText(phrases.get(2));
-            holder.btn5.setText(phrases.get(1));
-            holder.btn6.setText(phrases.get(0));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
         }
         else if (position ==2){
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
+            holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn2.setText(phrases.get(1));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
-            holder.btn1.setText(phrases.get(3));
-            holder.btn2.setText(phrases.get(2));
-            holder.btn3.setText(phrases.get(1));
-            holder.btn4.setText(phrases.get(0));
+                }
+            });
             holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
             holder.btn6.setText(phrases.get(5));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
         }
         else if (position ==3){
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
-            holder.btn1.setText(phrases.get(2));
+            holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
             holder.btn2.setText(phrases.get(1));
-            holder.btn3.setText(phrases.get(0));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
             holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
             holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
             holder.btn6.setText(phrases.get(5));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
         }
         else if (position ==4){
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
+            holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn2.setText(phrases.get(1));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
+                }
+            });
+            holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
 
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
-            holder.btn1.setText(phrases.get(5));
-            holder.btn2.setText(phrases.get(4));
-            holder.btn3.setText(phrases.get(0));
-            holder.btn4.setText(phrases.get(1));
-            holder.btn5.setText(phrases.get(2));
-            holder.btn6.setText(phrases.get(3));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
-        }
-        else {
-            switch(language){
-                case "English":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "French":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                case "Spanish":
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                default:
-                    //Set the audio files into the buttons for patients in english
-                    holder.btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_water);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn5.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn6.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.my_stomach_hurts);
-                            newMedia.start();
-
-                        }
-                    });
-                    holder.btn7.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn8.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn9.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-                    holder.btn10.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.are_you_hungry);
-                            newMedia.start();
-                        }
-                    });
-            }
-            holder.btn1.setText(phrases.get(1));
-            holder.btn2.setText(phrases.get(0));
-            holder.btn3.setText(phrases.get(4));
-            holder.btn4.setText(phrases.get(2));
-            holder.btn5.setText(phrases.get(3));
+                }
+            });
             holder.btn6.setText(phrases.get(5));
-            holder.btn7.setText(phrases.get(0));
-            holder.btn8.setText(phrases.get(1));
-            holder.btn9.setText(phrases.get(2));
-            holder.btn10.setText(phrases.get(3));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+        }
+        else{
+            holder.btn1.setText(phrases.get(0));
+            holder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_use_the_toilet);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(0));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(0)); //Will need to devise a naming convention or order to reliably grab these string values
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn2.setText(phrases.get(1));
+            holder.btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_would_like_some_food);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(1));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(1));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn3.setText(phrases.get(2));
+            holder.btn3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.may_i_see_the_nurse);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(2));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(2));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn4.setText(phrases.get(3));
+            holder.btn4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_understand);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(3));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(3));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn5.setText(phrases.get(4));
+            holder.btn5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_pain_where);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(4));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(4));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn6.setText(phrases.get(5));
+            holder.btn6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(5));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(5));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
+            holder.btn7.setText(phrases.get(6));
+            holder.btn7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.i_need_to_make_a_phone_call);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(6));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(6));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn8.setText(phrases.get(7));
+            holder.btn8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.is_there_family_i_can_call_for_you);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(7));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(7));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn9.setText(phrases.get(8));
+            holder.btn9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.what_is_your_name);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(8));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(8));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn10.setText(phrases.get(9));
+            holder.btn10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_have_any_known_allergies);
+                    newMedia.start();
+                    Intent intent = new Intent(context, DisplayPhrases.class);
+                    intent.putExtra("PatientPhrase", phrases.get(9));
+                    intent.putExtra("ProviderPhrase", providerPhrases.get(9));
+                    intent.putExtra("Language", "English");
+                    context.startActivity(intent);
+                }
+            });
         }
         //Want to look into getting a list of the images to iterate through
         // holder.img1.setImageDrawable();
@@ -1987,10 +903,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         public Button btn8;
         public Button btn9;
         public Button btn10;
-        /*
-        public TextView patientTranslation;
-        public TextView providerTranslation;
-        public ImageButton repeatBtn;
+
+     //   public TextView patientTranslation;
+      //  public TextView providerTranslation;
+      /*  public ImageButton repeatBtn;
         public Button didntMeanBtn;
         public Button yesBtn;
         public Button nobtn;
@@ -2016,274 +932,23 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             btn8 = itemView.findViewById(R.id.btn8);
             btn9 = itemView.findViewById(R.id.btn9);
             btn10 = itemView.findViewById(R.id.btn10);
-          /*  patientTranslation = itemView.findViewById(R.id.patientLangPhrase);
-            providerTranslation = itemView.findViewById(R.id.providerLangPhrase);
-            repeatBtn = itemView.findViewById(R.id.repeatButton);
-            nobtn = itemView.findViewById(R.id.answerNobtn);
-            yesBtn = itemView.findViewById(R.id.answerYesbtn);
-            dontunderstandbtn = itemView.findViewById(R.id.dontUnderstandBtn);
-            didntMeanBtn = itemView.findViewById(R.id.didntMeanToBtn);
-            needTranslatorbtn = itemView.findViewById(R.id.needInterpreter);
-            */
+       //     this.patientTranslation = (TextView)itemView.findViewById(R.id.patientPhrase);
+        //    this.providerTranslation = (TextView)itemView.findViewById(R.id.providerLangPhrase);
 
-
-            //Need to find a way to check for the language selected as well as the patient or provider
-            /*
-            if (user == "Patient"){
-                switch(language){
-                    case "English":
-                        //Set the audio files into the buttons for patients in english
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                  MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                  newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    case "French":
-                        //Set the audio files into the buttons for patients in french, need to change the audio files
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    case "Spanish":
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    default:
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                }
-            }
-            else if (user == "Provider"){
-                switch(language){
-                    case "English":
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    case "French":
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    case "Spanish":
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                    default:
-                        repeatBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                //Come back to this, need to figure out how to store the last selected phrase as a variable to pass into this method
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(),R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                        yesBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.yes_that_is_fine);
-                                newMedia.start();
-                            }
-                        });
-                        nobtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.no_i_am_not_okay_with_that);
-                                newMedia.start();
-                            }
-                        });
-                        needTranslatorbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), R.raw.do_you_need_an_interpreter);
-                                newMedia.start();
-                            }
-                        });
-                }
-            }*/
 
         }
         @Override
         public void onClick(View view) {
-            onNoteListener.onNoteClick(getAdapterPosition());
+            try{
+                onNoteListener.onNoteClick(getAdapterPosition());
+            }
+            catch (Exception e){
+
+            }
+        }
+
+        public Context getApplicationContext() {
+            return context.getApplicationContext();
         }
     }
 

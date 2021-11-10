@@ -1,12 +1,17 @@
 package com.example.languagelifeline;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +25,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     private RecyclerView recyclerViewPhrases;
     private ScrollingAdapter scrollingAdapter;
+    private ScrollingAdapter scrollingAdapter2;
     private GridLayout gridLayoutRight;
     public List<String> phrases;
     public String currentLanguage;
@@ -27,7 +33,12 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     private frenchPhrases frenchPhrases;
     private spanishPhrases spanishPhrases;
     public String user;
+    public TextView patientText;
+    public TextView providerText;
     final Utils toasty = new Utils();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +46,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         setContentView(R.layout.ui_main);
         phrases = new ArrayList<>();
         user = "Patient";
+        patientText = (TextView)findViewById(R.id.patientPhrase);
+        providerText = (TextView)findViewById(R.id.providerLangPhrase);
 
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
@@ -49,6 +62,15 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
         setLanguage(currentLanguage);
+        try{
+            String patientTranslation = receivingIntent.getStringExtra("PatientPhrase");
+            patientText.setText(patientTranslation);
+            String providerTranslation = receivingIntent.getStringExtra("ProviderPhrase");
+            providerText.setText(providerTranslation);
+        }
+        catch (Exception e){
+            //Do nothing
+        }
 
         //Instantiate the button to send the user back to the home page to select a new language
         Button homeBtn = (Button)findViewById(R.id.homeBtn);
@@ -136,7 +158,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
-        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user);
+        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user, engPhrase.getProviderPhrases());
         recyclerViewPhrases.setAdapter(scrollingAdapter);
     }
 
@@ -168,6 +190,15 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         }
     }
 
+
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String phrase = intent.getStringExtra("patientLang");
+            patientText.setText(phrase);
+        }
+    };
+
     @Override
     public void getPhrasePictures(String url) {
 
@@ -186,5 +217,14 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     @Override
     public void setAudioFiles() {
 
+    }
+
+    public Context getContext(){
+        return this.getApplicationContext();
+    }
+
+    public void setPhrase(String phrase){
+        setContentView(R.layout.ui_main);
+        patientText.setText(phrase);
     }
 }
