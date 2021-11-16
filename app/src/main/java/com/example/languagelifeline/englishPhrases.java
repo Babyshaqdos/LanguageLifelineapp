@@ -44,6 +44,7 @@ public class englishPhrases {
         englishPhrases.add("Can I change my position?");
         englishPhrases.add("I feel uncomfortable");
         englishPhrases.add("I would like that later");
+        englishPhrases.add("canhaveblanket.png");
 
 
 

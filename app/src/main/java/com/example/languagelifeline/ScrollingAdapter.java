@@ -55,7 +55,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Debugging message
       //  toasty.showToast(context, "Our position value is " + position);
         //Probably want to change this to a switch at some point
-
         //Sets each button with a phrase from the phrases list
         if (position == 0 ){
             holder.btn1.setText(phrases.get(0));

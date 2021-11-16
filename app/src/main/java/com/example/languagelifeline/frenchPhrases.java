@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class frenchPhrases {
-    private List<String> frenchPhrases;
+    private List<String> patientPhrases;
     private List<String> providerPhrases;
 
 
     public frenchPhrases(List<String> phrases){
-        this.frenchPhrases = phrases;
+        this.patientPhrases = phrases;
     }
 
 
     public frenchPhrases(){
-        frenchPhrases = new ArrayList<>();
+        patientPhrases = new ArrayList<>();
         providerPhrases = new ArrayList<>();
 
     }
@@ -29,12 +29,12 @@ public class frenchPhrases {
     }
 
     public void addPhrases(String phrase){
-        frenchPhrases.add(phrase);
+        patientPhrases.add(phrase);
     }
 
 
     public List<String> getFrenchPhrases(){
-        return frenchPhrases;
+        return patientPhrases;
     }
 
 
