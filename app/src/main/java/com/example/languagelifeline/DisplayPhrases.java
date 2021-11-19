@@ -45,7 +45,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         phrases = new ArrayList<>();
         user = "Patient";
         patientText = (TextView)findViewById(R.id.patientPhrase);
-        providerText = (TextView)findViewById(R.id.providerLangPhrase);
+        providerText = (TextView)findViewById(R.id.providerPhrase);
 
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
