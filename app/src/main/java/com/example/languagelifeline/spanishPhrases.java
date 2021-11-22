@@ -45,6 +45,7 @@ public class spanishPhrases {
         patientPhrases.add("Soy su doctor");
         patientPhrases.add("Soy su asistente de enfermería");
 
+
     }
 
     public void addProviderPhrase(String phrase){
