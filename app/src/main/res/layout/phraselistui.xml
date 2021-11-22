@@ -16,8 +16,8 @@
 
         <Button
             android:id="@+id/btn1"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:drawableLeft="@drawable/restroom"
             android:scaleType="fitCenter"
             android:text="I need to use the restroom"
@@ -25,57 +25,56 @@
 
         <Button
             android:id="@+id/btn2"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am thirsty. " />
 
         <Button
             android:id="@+id/btn3"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I have an allergy." />
 
         <Button
             android:id="@+id/btn4"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am hungry." />
 
         <Button
             android:id="@+id/btn5"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="My stomach hurts." />
 
         <Button
             android:id="@+id/btn6"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am in pain." />
 
         <Button
             android:id="@+id/btn7"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am in pain." />
 
         <Button
             android:id="@+id/btn8"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am in pain." />
 
         <Button
             android:id="@+id/btn9"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am in pain." />
 
         <Button
             android:id="@+id/btn10"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
             android:text="I am in pain." />
     </LinearLayout>
 

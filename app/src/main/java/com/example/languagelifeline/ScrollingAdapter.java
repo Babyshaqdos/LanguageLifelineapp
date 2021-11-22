@@ -53,7 +53,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         final Utils toasty = new Utils();
         String newPhrase;
         //Debugging message
-      //  toasty.showToast(context, "Our position value is " + position);
+        toasty.showToast(context, "Our position value is " + position);
         //Probably want to change this to a switch at some point
         //Sets each button with a phrase from the phrases list
         if (position == 0 ){
@@ -878,13 +878,12 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                 }
             });
         }
-        //Want to look into getting a list of the images to iterate through
-        // holder.img1.setImageDrawable();
+
     }
 
     @Override //Gets a count of the number of phrases passed into viewholder, may want to change to return number of buttons instantiated but for now this will work (function may not even be used)
     public int getItemCount() {
-        return phrases.size();
+        return 5;
     }
 
 
@@ -903,16 +902,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         public Button btn9;
         public Button btn10;
 
-     //   public TextView patientTranslation;
-      //  public TextView providerTranslation;
-      /*  public ImageButton repeatBtn;
-        public Button didntMeanBtn;
-        public Button yesBtn;
-        public Button nobtn;
-        public Button dontunderstandbtn;
-        public Button needTranslatorbtn;
-
-         */
 
 
 
