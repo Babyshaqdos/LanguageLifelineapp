@@ -50,7 +50,6 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         user = "Patient";
         patientText = (TextView)findViewById(R.id.patientPhrase);
         providerText = (TextView)findViewById(R.id.providerPhrase);
-        audioFiles = new audioFiles();
         audioMap = new HashMap<>();
 
         engPhrase = new englishPhrases();
@@ -58,10 +57,6 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         spanishPhrases = new spanishPhrases();
 
         Intent receivingIntent = getIntent();
-        //The getIntent() method will grab the last intent that was passed into this class and assign it to our new intent
-       /* String variable1 = receivingIntent.getStringExtra("FirstVariableStringValue"); //The name must exactly match the name you gave it in the prior class or else it wont find the value
-        Integer variable2 = receivingIntent.getIntExtra("SecondVariableIntValue", 0); //Same functionality as line above but showing how you can get different data types from the same intent
-        */
 
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
@@ -69,11 +64,13 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         try{
             String patientTranslation = receivingIntent.getStringExtra("PatientPhrase");
             patientText.setText(patientTranslation);
+            audioFiles = new audioFiles(currentLanguage);
             String providerTranslation = receivingIntent.getStringExtra("ProviderPhrase");
             providerText.setText(providerTranslation);
         }
         catch (Exception e){
             //Do nothing
+            audioFiles = new audioFiles("English");
         }
 
         //Instantiate the button to send the user back to the home page to select a new language
@@ -103,7 +100,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 //Checks which button is checked and populates the button phrases based on the switch position
                 //Default position is the patient
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
-                    toasty.showToast(group.getContext(), "Debug message, patient is checked");
+                    //toasty.showToast(group.getContext(), "Debug message, patient is checked");
                     user = "Patient";
                     //Checks the current language then populates the buttons with the appropriate language phrases
                     switch (currentLanguage) {
@@ -114,6 +111,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                             break;
                         case "French":
                             phrases = frenchPhrases.getFrenchPhrases();
+                            audioMap = audioFiles.getFrenchPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "Spanish":
@@ -123,28 +121,32 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                             break;
                         default:
                             phrases = engPhrase.getEnglishPhrases();
+                            audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                     };
                 }
                 else if (group.getCheckedButtonId() == R.id.providerBtn){
-                    toasty.showToast(group.getContext(), "Debug message, provider is checked");
+                   // toasty.showToast(group.getContext(), "Debug message, provider is checked");
                     user = "Provider";
                         switch(currentLanguage){
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
+                                audioMap = audioFiles.getEngPatientAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             case "French":
                                 phrases = frenchPhrases.getProviderPhrases();
+                                audioMap = audioFiles.getFrenchPatientAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             case "Spanish":
-                                phrases = spanishPhrases.getProviderPhrases();
-                                audioMap = audioFiles.getSpanPatientAudio();
+                                phrases = engPhrase.getProviderPhrases();
+                                audioMap = audioFiles.getEngProviderAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             default:
                                 phrases = engPhrase.getProviderPhrases();
+                                audioMap = audioFiles.getEngPatientAudio();
                                 setRecyclerViewPhrases();
                         };
                     };

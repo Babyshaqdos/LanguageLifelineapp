@@ -63,9 +63,9 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         holder.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String holder = phrases.get(finalPosition);
-                toasty.showToast(context, holder);
-                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holder));
+                String holderPhrase = phrases.get(finalPosition);
+                toasty.showToast(context, holderPhrase);
+                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holderPhrase));
                 newMedia.start();
                 Intent intent = new Intent(context, DisplayPhrases.class);
                 intent.putExtra("PatientPhrase", phrases.get(finalPosition));
@@ -74,8 +74,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                 context.startActivity(intent);
             }
         });
-        //Probably want to change this to a switch at some point
-        //Sets each button with a phrase from the phrases list
 
     }
 
