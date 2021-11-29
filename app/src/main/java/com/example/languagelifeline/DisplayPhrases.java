@@ -17,7 +17,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
@@ -34,6 +36,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     public TextView patientText;
     public TextView providerText;
     final Utils toasty = new Utils();
+    private audioFiles audioFiles;
+    public Map<String, Integer> audioMap;
 
 
 
@@ -46,6 +50,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         user = "Patient";
         patientText = (TextView)findViewById(R.id.patientPhrase);
         providerText = (TextView)findViewById(R.id.providerPhrase);
+        audioFiles = new audioFiles();
+        audioMap = new HashMap<>();
 
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
@@ -103,6 +109,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                     switch (currentLanguage) {
                         case "English":
                             phrases = engPhrase.getEnglishPhrases();
+                            audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "French":
@@ -111,6 +118,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                             break;
                         case "Spanish":
                             phrases = spanishPhrases.getPatientPhrases();
+                            audioMap = audioFiles.getSpanPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         default:
@@ -132,6 +140,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                                 break;
                             case "Spanish":
                                 phrases = spanishPhrases.getProviderPhrases();
+                                audioMap = audioFiles.getSpanPatientAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             default:
@@ -156,7 +165,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
-        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user, engPhrase.getProviderPhrases());
+        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user, engPhrase.getProviderPhrases(), audioMap);
         recyclerViewPhrases.setAdapter(scrollingAdapter);
     }
 
@@ -172,6 +181,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         switch (language) {
             case "English":
                 phrases = engPhrase.getEnglishPhrases();
+                audioMap = audioFiles.getEngPatientAudio();
                 setRecyclerViewPhrases();
                 break;
             case "French":
@@ -180,6 +190,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 break;
             case "Spanish":
                 phrases = spanishPhrases.getPatientPhrases();
+                audioMap = audioFiles.getSpanPatientAudio();
                 setRecyclerViewPhrases();
                 break;
             default:

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout android:id="@+id/gridLayout"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content">
 
 
     <LinearLayout
@@ -16,67 +16,13 @@
 
         <Button
             android:id="@+id/btn1"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:drawableLeft="@drawable/i_need_to_use_the_restroom"
             android:scaleType="fitCenter"
             android:text="I need to use the restroom"
             android:textColor="#FFFFFF"></Button>
 
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am thirsty. " />
-
-        <Button
-            android:id="@+id/btn3"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I have an allergy." />
-
-        <Button
-            android:id="@+id/btn4"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="4dp"
-            android:text="I am hungry." />
-
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="My stomach hurts." />
-
-        <Button
-            android:id="@+id/btn6"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am in pain." />
-
-        <Button
-            android:id="@+id/btn7"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am in pain." />
-
-        <Button
-            android:id="@+id/btn8"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am in pain." />
-
-        <Button
-            android:id="@+id/btn9"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am in pain." />
-
-        <Button
-            android:id="@+id/btn10"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:text="I am in pain." />
     </LinearLayout>
 
 </GridLayout>

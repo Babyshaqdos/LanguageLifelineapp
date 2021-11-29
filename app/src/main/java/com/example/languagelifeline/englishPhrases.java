@@ -33,36 +33,80 @@ public class englishPhrases {
         englishPhrases.add("I feel weak");
         englishPhrases.add("I am having trouble breathing");
         englishPhrases.add("I feel nauseous");
+        englishPhrases.add("I think I have a fever, could you take my temperature?");
         englishPhrases.add("Can you check my vitals?");
         englishPhrases.add("Can you charge my phone");
         englishPhrases.add("I need to make a phone call");
         englishPhrases.add("Can you close my blinds?");
         englishPhrases.add("Can you open my blinds?");
         englishPhrases.add("I cannot sleep");
+        englishPhrases.add("I would like some medication to help me sleep");
         englishPhrases.add("Can I have a pillow?");
         englishPhrases.add("Can I have a blanket?");
+        englishPhrases.add("Can I move to the chair?");
+        englishPhrases.add("Can I raise my head?");
+        englishPhrases.add("Can I lower my head?");
         englishPhrases.add("Can I change my position?");
         englishPhrases.add("I feel uncomfortable");
+        englishPhrases.add("I would like to do that myself");
         englishPhrases.add("I would like that later");
-        englishPhrases.add("canhaveblanket.png");
+        englishPhrases.add("May I see the nurse?");
 
 
 
 
 
 
-        providerPhrases.add("Do you need to use the toilet?");
-        providerPhrases.add("Do you have pain?");
-        providerPhrases.add("Can you point to where your pain is?");
         providerPhrases.add("What is your name?");
-        providerPhrases.add("Do you have any known allergies?");
+        providerPhrases.add("Does someone with you today speak English?");
+        providerPhrases.add("My name is…");
+        providerPhrases.add("I am your day-shift nurse");
+        providerPhrases.add("I am your night-shift nurse");
+        providerPhrases.add("I am your doctor");
+        providerPhrases.add("I am your nursing assistant");
+        providerPhrases.add("Would you like me to call a chaplain?");
+        providerPhrases.add("Do you need to use the toilet?");
+        providerPhrases.add("Would you like me to wipe you?");
         providerPhrases.add("Are you hungry?");
         providerPhrases.add("Are you thirsty?");
-        providerPhrases.add("Do you need an interpreter?");
-        providerPhrases.add("The doctor will be right with you");
-        providerPhrases.add("Is there family I can call for you?");
+        providerPhrases.add("Would you like the door shut?");
         providerPhrases.add("Do you understand?");
-        providerPhrases.add("Do you take any other medications?");
+        providerPhrases.add("I will be right back");
+        providerPhrases.add("Can I give you your sponge bath now?");
+        providerPhrases.add("Are you ready to sit up in the chair?");
+        providerPhrases.add("Are you ready to take a walk?");
+        providerPhrases.add("Do you want a new gown?");
+        providerPhrases.add("I am going to put on your socks now");
+        providerPhrases.add("Do you have pain?");
+        providerPhrases.add("Can you point to where your pain is?");
+        providerPhrases.add("What is your pain level?");
+        providerPhrases.add("Would you like ice?");
+        providerPhrases.add("Does your pain keep you from sleeping?");
+        providerPhrases.add("Can I call someone for you?");
+        providerPhrases.add("How can I help you?");
+        providerPhrases.add("Are you comfortable?");
+        providerPhrases.add("Would you like me to move you in bed?");
+        providerPhrases.add("It is time to turn you in bed");
+        providerPhrases.add("I am here with your meal");
+        providerPhrases.add("Would you like me to open anything for you?");
+        providerPhrases.add("Is the room too warm?");
+        providerPhrases.add("Is the room too cold?");
+        providerPhrases.add("I will be right back to assist you");
+        providerPhrases.add("I am here with your medications");
+        providerPhrases.add("I am sorry, I was delayed");
+        providerPhrases.add("I will send the nurse in to assist you");
+        providerPhrases.add("The doctor will be right with you");
+        providerPhrases.add("I will check your vitals now");
+        providerPhrases.add("I’m going to take your blood pressure now.");
+        providerPhrases.add("I will check your temperature now");
+        providerPhrases.add("I am here to draw your blood");
+        providerPhrases.add("I am here for respiratory therapy");
+        providerPhrases.add("I am here to give you a breathing treatment");
+        providerPhrases.add("I am here to take you for an X-Ray");
+        providerPhrases.add("I am here to take you for an MRI.");
+        providerPhrases.add("Are you breathing okay?");
+        providerPhrases.add("Are you having trouble breathing?");
+
 
 
 
