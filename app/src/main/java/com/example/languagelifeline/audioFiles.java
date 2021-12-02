@@ -78,32 +78,37 @@ public class audioFiles {
         spanPatientAudio.put("Quiero eso más tarde.", R.raw.i_would_like_that_later);
         spanPatientAudio.put("Necesito la enfermera.", R.raw.may_i_see_the_nurse);
 
-
-        frenchPatientAudio.put("Comment vous-appelez vous?", R.raw.i_need_to_use_the_toilet);
-        frenchPatientAudio.put("Il y a quelqu'un ici qui parle l’anglais?", R.raw.i_would_like_some_food);
-        frenchPatientAudio.put("Je m’appelle…", R.raw.i_would_like_some_water);
-        frenchPatientAudio.put("Je suis votre infirmière pendant la journée", R.raw.what_is_this);
-        frenchPatientAudio.put("Je suis votre infirmière pendant la nuit", R.raw.my_pain_is_better);
-        frenchPatientAudio.put("Je suis votre médecin", R.raw.my_pain_is_worse);
-        frenchPatientAudio.put("Je suis votre infirmière auxiliaire", R.raw.my_pain_is_the_same);
-        frenchPatientAudio.put("Est-ce que vous voulez  j'appelle un chapelain?", R.raw.my_stomach_hurts);
-        frenchPatientAudio.put("Vous avez besoin d’utiliser la toilette?", R.raw.i_am_dizzy);
-        frenchPatientAudio.put("Devrais-je vous essuyer?", R.raw.i_do_not_feel_good);
-        frenchPatientAudio.put("Vous avez faim?", R.raw.i_feel_weak);
-        frenchPatientAudio.put("Vous avez soif?", R.raw.i_am_having_trouble_breathing);
-        frenchPatientAudio.put("Devrais-je fermer la porte?", R.raw.i_feel_nauseous);
-        frenchPatientAudio.put("Vous comprenez?", R.raw.i_think_i_have_a_fever_can_you_check_my_temperature);
-        frenchPatientAudio.put("Je reviens tout de suite", R.raw.can_you_check_my_vitals);
-        frenchPatientAudio.put("Puis-je donner ton lavage à l'éponge?", R.raw.can_you_charge_my_phone);
-        frenchPatientAudio.put("Etes-vous prêt pour se redresser dans la chaise?", R.raw.i_need_to_make_a_phone_call);
-        frenchPatientAudio.put("Etes-vous prêt pour une promenade?", R.raw.can_you_close_my_blinds);
-        frenchPatientAudio.put("Voulez-vous une nouvelle blouse d'hôpital?", R.raw.can_you_open_my_blinds);
-        frenchPatientAudio.put("Je mets vos chaussettes maintenant", R.raw.i_cannot_sleep);
-        frenchPatientAudio.put("Vous avez de la douleur?", R.raw.i_would_like_some_medication_to_help_me_sleep);
-        frenchPatientAudio.put("Pouvez vous montrer du doigt votre douleur?", R.raw.can_i_have_a_pillow);
-        frenchPatientAudio.put("Quel est votre niveau de douleur?", R.raw.can_i_have_a_blanket);
-        frenchPatientAudio.put("Vous voudrais des glaçons?", R.raw.can_i_move_to_the_chair);
-        frenchPatientAudio.put("Vous ne pouvez pas dormir parce que votre douleur?", R.raw.can_i_raise_my_head);
+        frenchPatientAudio.put("J’ai besoin d’utiliser la toilette.", R.raw.i_need_to_use_the_toilet);
+        frenchPatientAudio.put("Je voudrais de la nourriture.", R.raw.i_would_like_some_food);
+        frenchPatientAudio.put("Je voudrais de la boisson.", R.raw.i_would_like_some_water);
+        frenchPatientAudio.put("Qu'est-ce que c'est?", R.raw.what_is_this);
+        frenchPatientAudio.put("Je me sens moins de douleur.", R.raw.my_pain_is_better);
+        frenchPatientAudio.put("Je me sens plus de douleur.", R.raw.my_pain_is_worse);
+        frenchPatientAudio.put("Ma douleur ne change pas.", R.raw.my_pain_is_the_same);
+        frenchPatientAudio.put("J’ai mal à l’estomac.", R.raw.my_stomach_hurts);
+        frenchPatientAudio.put("J’ai la tête qui tourne.", R.raw.i_am_dizzy);
+        frenchPatientAudio.put("Je ne me sens pas bien.", R.raw.i_do_not_feel_good);
+        frenchPatientAudio.put("Je me sens faible.", R.raw.i_feel_weak);
+        frenchPatientAudio.put("J’ai la difficulté avec la respiration.", R.raw.i_am_having_trouble_breathing);
+        frenchPatientAudio.put("J’ai la nausée.", R.raw.i_feel_nauseous);
+        frenchPatientAudio.put("Je pense que j'ai de la fièvre. Pouvez-vous prendre ma température?", R.raw.i_think_i_have_a_fever_can_you_check_my_temperature);
+        frenchPatientAudio.put("Pouvez-vous prendre mes signes vitaux?", R.raw.can_you_check_my_vitals);
+        frenchPatientAudio.put("Pouvez-vous recharger mon téléphone?", R.raw.can_you_charge_my_phone);
+        frenchPatientAudio.put("J’ai besoin de passer un coup de téléphone.", R.raw.i_need_to_make_a_phone_call);
+        frenchPatientAudio.put("Pouvez-vous fermer les stores?", R.raw.can_you_close_my_blinds);
+        frenchPatientAudio.put("Pouvez-vous ouvrir les stores?", R.raw.can_you_open_my_blinds);
+        frenchPatientAudio.put("Je ne peux pas dormir.", R.raw.i_cannot_sleep);
+        frenchPatientAudio.put("Je voudrais un médicament pour dormir.", R.raw.i_would_like_some_medication_to_help_me_sleep);
+        frenchPatientAudio.put("Puis-je avoir un oreiller?", R.raw.can_i_have_a_pillow);
+        frenchPatientAudio.put("Puis-je avoir une couverture?", R.raw.can_i_have_a_blanket);
+        frenchPatientAudio.put("Puis-je aller à la chaise?", R.raw.can_i_move_to_the_chair);
+        frenchPatientAudio.put("Puis-je lever la tête?", R.raw.can_i_raise_my_head);
+        frenchPatientAudio.put("Puis-je baisser la tête?", R.raw.can_i_lower_my_head);
+        frenchPatientAudio.put("Puis-je changer ma position?", R.raw.can_i_change_my_position);
+        frenchPatientAudio.put("Je me sens mal à l’aise.", R.raw.i_feel_uncomfortable);
+        frenchPatientAudio.put("Je voudrais faire ça moi-même.", R.raw.i_would_like_to_do_that_myself);
+        frenchPatientAudio.put("Je voudrais ça plus tard.", R.raw.i_would_like_that_later);
+        frenchPatientAudio.put("J’ai besoin de infirmier?", R.raw.may_i_see_the_nurse);
         //Missing some phrases for french here, also pretty sure they are out of order
 
 

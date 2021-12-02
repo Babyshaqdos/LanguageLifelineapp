@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/i_need_to_use_the_restroom"
             android:scaleType="fitCenter"
-            android:text="I need to use the restroom"
+            android:text="cylindrical"
             android:textColor="#FFFFFF"></Button>
 
     </LinearLayout>

@@ -25,8 +25,6 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     private RecyclerView recyclerViewPhrases;
     private ScrollingAdapter scrollingAdapter;
-    private ScrollingAdapter scrollingAdapter2;
-    private GridLayout gridLayoutRight;
     public List<String> phrases;
     public String currentLanguage;
     public englishPhrases engPhrase;
@@ -61,7 +59,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
         setLanguage(currentLanguage);
-        try{
+        try{ //Want to use a try catch here to handle any exceptions raised by receiving an empty intent, non empty intents are sent from scrolling adapter on the onclick
             String patientTranslation = receivingIntent.getStringExtra("PatientPhrase");
             patientText.setText(patientTranslation);
             audioFiles = new audioFiles(currentLanguage);

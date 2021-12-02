@@ -23,11 +23,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     private OnNoteListener mOnNoteListener;
     private String language;
     private String user;
-    String newPhraseglobal = "";
     private Map<String, Integer> audioFiles;
 
 
-    //Constructor that takes the current context and the list of phrases
+    //Constructor that takes the current context, list of phrases for both provider and patient, the current language, whether the user is a patient or provider, and a map of the audiofiles
     public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles){
         this.phrases= phrases;
         this.context=context;
@@ -54,19 +53,19 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     //This method is called any time the viewholder is updated, aka whenever the user scrolls on the left side of the screen
     @Override //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Utils toasty = new Utils();
-        String newPhrase;
-        //Debugging message
-       // toasty.showToast(context, "Our position value is " + position);
-        holder.btn1.setText(phrases.get(position));
+        final Utils toasty = new Utils(); //Class that holds our toast message function (used for debugging purposes)
+
+        holder.btn1.setText(phrases.get(position)); //Holder is the viewgroup containing the phraselistui layout, line sets the button text based on the position in the phrases
         int finalPosition = position;
-        holder.btn1.setOnClickListener(new View.OnClickListener() {
+        holder.btn1.setOnClickListener(new View.OnClickListener() { //Set an onclick listener to the button
             @Override
             public void onClick(View view) {
-                String holderPhrase = phrases.get(finalPosition);
-                toasty.showToast(context, holderPhrase);
+                String holderPhrase = phrases.get(finalPosition); //Get the phrase using our final int
+                //toasty.showToast(context, holderPhrase);
+                //Create a media player object and pass in the correct audio file
                 MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holderPhrase));
                 newMedia.start();
+                //Create a new intent with the selected phrase and provider phrase based on the position then send to the main activity to update the textviews
                 Intent intent = new Intent(context, DisplayPhrases.class);
                 intent.putExtra("PatientPhrase", phrases.get(finalPosition));
                 intent.putExtra("ProviderPhrase", providerPhrases.get(finalPosition));
@@ -88,15 +87,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Instantiate all of our buttons and imageviews
         OnNoteListener onNoteListener;
         public Button btn1;
-        public Button btn2;
-        public Button btn3;
-        public Button btn4;
-        public Button btn5;
-        public Button btn6;
-        public Button btn7;
-        public Button btn8;
-        public Button btn9;
-        public Button btn10;
 
 
 
