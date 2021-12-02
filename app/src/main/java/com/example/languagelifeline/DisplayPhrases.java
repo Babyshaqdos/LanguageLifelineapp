@@ -26,6 +26,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     private RecyclerView recyclerViewPhrases;
     private ScrollingAdapter scrollingAdapter;
     public List<String> phrases;
+    public List<String> translatedPhrase;
     public String currentLanguage;
     public englishPhrases engPhrase;
     private frenchPhrases frenchPhrases;
@@ -49,11 +50,10 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         patientText = (TextView)findViewById(R.id.patientPhrase);
         providerText = (TextView)findViewById(R.id.providerPhrase);
         audioMap = new HashMap<>();
-
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
         spanishPhrases = new spanishPhrases();
-
+        translatedPhrase = engPhrase.getProviderPhrases();
         Intent receivingIntent = getIntent();
 
         //Get the current language to populate the phrases/buttons
@@ -104,21 +104,25 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                     switch (currentLanguage) {
                         case "English":
                             phrases = engPhrase.getEnglishPhrases();
+                            translatedPhrase = engPhrase.getEnglishPhrases();
                             audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "French":
                             phrases = frenchPhrases.getFrenchPhrases();
+                            translatedPhrase = engPhrase.getEnglishPhrases();
                             audioMap = audioFiles.getFrenchPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "Spanish":
                             phrases = spanishPhrases.getPatientPhrases();
+                            translatedPhrase = engPhrase.getEnglishPhrases();
                             audioMap = audioFiles.getSpanPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         default:
                             phrases = engPhrase.getEnglishPhrases();
+                            translatedPhrase= engPhrase.getEnglishPhrases();
                             audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                     };
@@ -129,22 +133,26 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                         switch(currentLanguage){
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
+                                translatedPhrase = engPhrase.getProviderPhrases();
                                 audioMap = audioFiles.getEngPatientAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             case "French":
-                                phrases = frenchPhrases.getProviderPhrases();
-                                audioMap = audioFiles.getFrenchPatientAudio();
+                                phrases = engPhrase.getProviderPhrases();
+                                translatedPhrase = frenchPhrases.getProviderPhrases();
+                                audioMap = audioFiles.getEngProviderAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             case "Spanish":
                                 phrases = engPhrase.getProviderPhrases();
+                                translatedPhrase = spanishPhrases.getProviderPhrases();
                                 audioMap = audioFiles.getEngProviderAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             default:
                                 phrases = engPhrase.getProviderPhrases();
-                                audioMap = audioFiles.getEngPatientAudio();
+                                translatedPhrase = engPhrase.getProviderPhrases();
+                                audioMap = audioFiles.getEngProviderAudio();
                                 setRecyclerViewPhrases();
                         };
                     };
@@ -165,7 +173,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewPhrases.setLayoutManager(linearLayoutManager);
-        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user, engPhrase.getProviderPhrases(), audioMap);
+        scrollingAdapter = new ScrollingAdapter(this, phrases, currentLanguage, user, engPhrase.getProviderPhrases(), audioMap, translatedPhrase);
         recyclerViewPhrases.setAdapter(scrollingAdapter);
     }
 
@@ -186,6 +194,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 break;
             case "French":
                 phrases = frenchPhrases.getFrenchPhrases();
+                audioMap = audioFiles.getFrenchPatientAudio();
                 setRecyclerViewPhrases();
                 break;
             case "Spanish":
@@ -195,18 +204,12 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 break;
             default:
                 phrases = engPhrase.getEnglishPhrases();
+                audioMap = audioFiles.getEngPatientAudio();
                 setRecyclerViewPhrases();
         }
     }
 
 
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String phrase = intent.getStringExtra("patientLang");
-            patientText.setText(phrase);
-        }
-    };
 
     @Override
     public void getPhrasePictures(String url) {

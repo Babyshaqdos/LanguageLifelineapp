@@ -20,6 +20,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     private Context context;
     private List<String> phrases;
     private List<String> providerPhrases;
+    private List<String> translatedProviderPhrases;
     private OnNoteListener mOnNoteListener;
     private String language;
     private String user;
@@ -27,13 +28,14 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
 
     //Constructor that takes the current context, list of phrases for both provider and patient, the current language, whether the user is a patient or provider, and a map of the audiofiles
-    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles){
+    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles, List<String> translatedProviderPhrases){
         this.phrases= phrases;
         this.context=context;
         this.language = language;
         this.user = user;
         this.providerPhrases = providerPhrases;
         this.audioFiles = audioFiles;
+        this.translatedProviderPhrases = translatedProviderPhrases;
     }
 
     //Constructor that takes the current context, the list of phrases, and a listener for the buttons in the view
@@ -61,14 +63,14 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             @Override
             public void onClick(View view) {
                 String holderPhrase = phrases.get(finalPosition); //Get the phrase using our final int
-                //toasty.showToast(context, holderPhrase);
+              //  toasty.showToast(context, holderPhrase);
                 //Create a media player object and pass in the correct audio file
                 MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holderPhrase));
                 newMedia.start();
                 //Create a new intent with the selected phrase and provider phrase based on the position then send to the main activity to update the textviews
                 Intent intent = new Intent(context, DisplayPhrases.class);
                 intent.putExtra("PatientPhrase", phrases.get(finalPosition));
-                intent.putExtra("ProviderPhrase", providerPhrases.get(finalPosition));
+                intent.putExtra("ProviderPhrase", translatedProviderPhrases.get(finalPosition));
                 intent.putExtra("Language", language);
                 context.startActivity(intent);
             }
