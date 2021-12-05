@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+//This class will contain the hash map that pairs each String representing a phrase with the appropriate audio file
 public class audioFiles {
+    //Declare and instantiate our hash maps, will need to find a way to generate these with code for 2nd half of the project
     static Map<String, Integer> engPatientAudio = new HashMap<String, Integer>();
     static Map<String, Integer> engProviderAudio = new HashMap<String, Integer>();
     static Map<String, Integer> spanPatientAudio = new HashMap<String, Integer>();
@@ -13,8 +16,9 @@ public class audioFiles {
     static Map<String, Integer> frenchPatientAudio = new HashMap<String, Integer>();
     static Map<String, Integer> frenchProviderAudio = new HashMap<String, Integer>();
 
-
+    //Constructor that takes the language the provider needs translated as input
     public audioFiles(String translateToLanguage){
+        //Add english patient audio files to hash map, will want to rework this over break/next semester to allow for addition of new phrases and audio files for 2nd half requirements
        engPatientAudio.put("I need to use the toilet", R.raw.i_need_to_use_the_toilet);
        engPatientAudio.put("I would like some food", R.raw.i_would_like_some_food);
        engPatientAudio.put("I would like some water", R.raw.i_would_like_some_water);
@@ -46,6 +50,8 @@ public class audioFiles {
        engPatientAudio.put("I would like to do that myself", R.raw.i_would_like_to_do_that_myself);
        engPatientAudio.put("I would like that later", R.raw.i_would_like_that_later);
        engPatientAudio.put("May I see the nurse?", R.raw.may_i_see_the_nurse);
+
+       //Add the spanish patient audio files to hash map
         spanPatientAudio.put("Necesito usar el baño.", R.raw.i_need_to_use_the_toilet);
         spanPatientAudio.put("Me gustaría comida.", R.raw.i_would_like_some_food);
         spanPatientAudio.put("Me gustaría agua.", R.raw.i_would_like_some_water);
@@ -78,6 +84,7 @@ public class audioFiles {
         spanPatientAudio.put("Quiero eso más tarde.", R.raw.i_would_like_that_later);
         spanPatientAudio.put("Necesito la enfermera.", R.raw.may_i_see_the_nurse);
 
+        //Add the french patient audio files to hash map
         frenchPatientAudio.put("J’ai besoin d’utiliser la toilette.", R.raw.i_need_to_use_the_toilet);
         frenchPatientAudio.put("Je voudrais de la nourriture.", R.raw.i_would_like_some_food);
         frenchPatientAudio.put("Je voudrais de la boisson.", R.raw.i_would_like_some_water);
@@ -109,10 +116,10 @@ public class audioFiles {
         frenchPatientAudio.put("Je voudrais faire ça moi-même.", R.raw.i_would_like_to_do_that_myself);
         frenchPatientAudio.put("Je voudrais ça plus tard.", R.raw.i_would_like_that_later);
         frenchPatientAudio.put("J’ai besoin de infirmier?", R.raw.may_i_see_the_nurse);
-        //Missing some phrases for french here, also pretty sure they are out of order
 
 
 
+        //Takes the passed in string value and calls the appropriate method to translate provider audio
         switch(translateToLanguage){
             case "Spanish":
                 translateSpanish();
@@ -123,15 +130,15 @@ public class audioFiles {
             case "English":
                 translateEnglish();
                 break;
-            default:
+            default: //Will want to find a better way of handling default languages in the future
                 translateEnglish();
                 break;
         }
 
-
-
     }
 
+    //Function to take the provider phrases and translate it from default (english- for now) to spanish
+    //As before will want to find better way to do this using a more iterative approach
     public void translateSpanish(){
         engProviderAudio.put("What is your name?", R.raw.como_se_llama);
         engProviderAudio.put("Does someone with you today speak English?", R.raw.hay_alguien_consigo_hoy_que_habla_ingles);
@@ -185,7 +192,7 @@ public class audioFiles {
 
     }
 
-
+    //Function to translate the provider phrases into french
     public void translateFrench(){
         engProviderAudio.put("What is your name?", R.raw.comment_vous_appelez_vous);
         engProviderAudio.put("Does someone with you today speak English?", R.raw.il_y_a_quelqu_un_ici_qui_parle_l_anglais);
@@ -239,27 +246,25 @@ public class audioFiles {
 
     }
 
-
+    //Function to translate provider phrases into english (not used for 1st half of project, will revisit when option to change default language is implemented)
     public void translateEnglish(){
 
     }
 
+
+    //Getter functions to return the hash maps
     public static Map<String, Integer> getEngProviderAudio(){
         return engProviderAudio;
     }
     public static Map<String, Integer> getSpanProviderAudio(){
         return spanProviderAudio;
     }
-
     public static Map<String, Integer> getEngPatientAudio() {
         return engPatientAudio;
     }
-
     public static Map<String, Integer> getSpanPatientAudio(){
         return spanPatientAudio;
     }
-
-
     public static Map<String, Integer> getFrenchPatientAudio(){
         return frenchPatientAudio;
     }

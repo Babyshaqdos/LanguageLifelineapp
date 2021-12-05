@@ -23,6 +23,7 @@ import java.util.Map;
 
 public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
+    //Declare our variables and objects for local use in DisplayPhrases class
     private RecyclerView recyclerViewPhrases;
     private ScrollingAdapter scrollingAdapter;
     public List<String> phrases;
@@ -41,10 +42,11 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
 
 
-    @Override
+    @Override //onCreate is called as soon as this activity is started
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ui_main);
+        setContentView(R.layout.ui_main); //Set the layout
+        //Instantiate our variables and objects for local use
         phrases = new ArrayList<>();
         user = "Patient";
         patientText = (TextView)findViewById(R.id.patientPhrase);
@@ -54,6 +56,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         frenchPhrases = new frenchPhrases();
         spanishPhrases = new spanishPhrases();
         translatedPhrase = engPhrase.getProviderPhrases();
+
+        //Get our intent, used to send variable information between activities
         Intent receivingIntent = getIntent();
 
         //Get the current language to populate the phrases/buttons
@@ -67,7 +71,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             providerText.setText(providerTranslation);
         }
         catch (Exception e){
-            //Do nothing
+            //Set audioFiles to default if no intent information was passed, used in the case of going from welcome screen to main screen
             audioFiles = new audioFiles("English");
         }
 
@@ -103,26 +107,26 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                     //Checks the current language then populates the buttons with the appropriate language phrases
                     switch (currentLanguage) {
                         case "English":
-                            phrases = engPhrase.getEnglishPhrases();
-                            translatedPhrase = engPhrase.getEnglishPhrases();
+                            phrases = engPhrase.getPatientPhrases();
+                            translatedPhrase = engPhrase.getPatientPhrases();
                             audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "French":
-                            phrases = frenchPhrases.getFrenchPhrases();
-                            translatedPhrase = engPhrase.getEnglishPhrases();
+                            phrases = frenchPhrases.getPatientPhrases();
+                            translatedPhrase = engPhrase.getPatientPhrases();
                             audioMap = audioFiles.getFrenchPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         case "Spanish":
                             phrases = spanishPhrases.getPatientPhrases();
-                            translatedPhrase = engPhrase.getEnglishPhrases();
+                            translatedPhrase = engPhrase.getPatientPhrases();
                             audioMap = audioFiles.getSpanPatientAudio();
                             setRecyclerViewPhrases();
                             break;
                         default:
-                            phrases = engPhrase.getEnglishPhrases();
-                            translatedPhrase= engPhrase.getEnglishPhrases();
+                            phrases = engPhrase.getPatientPhrases();
+                            translatedPhrase= engPhrase.getPatientPhrases();
                             audioMap = audioFiles.getEngPatientAudio();
                             setRecyclerViewPhrases();
                     };
@@ -134,7 +138,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
                                 translatedPhrase = engPhrase.getProviderPhrases();
-                                audioMap = audioFiles.getEngPatientAudio();
+                                audioMap = audioFiles.getEngProviderAudio();
                                 setRecyclerViewPhrases();
                                 break;
                             case "French":
@@ -165,6 +169,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     }
 
+    //Function that instantiates our recyclerview and sets a layout manager on it, which is then used to actually display it onto the left side of layout
     public void setRecyclerViewPhrases(){
         //Set a layout manager for the recycler view and populate the view with the phrases
         recyclerViewPhrases = findViewById(R.id.phraseRecycler);
@@ -177,23 +182,23 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         recyclerViewPhrases.setAdapter(scrollingAdapter);
     }
 
-    @Override
+    @Override //Function to get the language from the intent (May be redundant but could be useful for clarity)
     public String getLanguage(String language) {
         //Intent information can be retrieved here if we call getLanguage from the onCreate method, helpful for clarity of program
         String currLang = language;
         return currLang;
     }
 
-    @Override
+    @Override //Function that sets the language in the app to the selected language (May be redundant, will circle back to this and getLanguage)
     public void setLanguage(String language) {
         switch (language) {
             case "English":
-                phrases = engPhrase.getEnglishPhrases();
+                phrases = engPhrase.getPatientPhrases();
                 audioMap = audioFiles.getEngPatientAudio();
                 setRecyclerViewPhrases();
                 break;
             case "French":
-                phrases = frenchPhrases.getFrenchPhrases();
+                phrases = frenchPhrases.getPatientPhrases();
                 audioMap = audioFiles.getFrenchPatientAudio();
                 setRecyclerViewPhrases();
                 break;
@@ -203,7 +208,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 setRecyclerViewPhrases();
                 break;
             default:
-                phrases = engPhrase.getEnglishPhrases();
+                phrases = engPhrase.getPatientPhrases();
                 audioMap = audioFiles.getEngPatientAudio();
                 setRecyclerViewPhrases();
         }
@@ -231,12 +236,9 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     }
 
+    //Function to get the context of the class (I.E. the activity that is currently running in the app)
     public Context getContext(){
         return this.getApplicationContext();
     }
 
-    public void setPhrase(String phrase){
-        setContentView(R.layout.ui_main);
-        patientText.setText(phrase);
-    }
 }

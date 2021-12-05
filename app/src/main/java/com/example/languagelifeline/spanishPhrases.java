@@ -3,18 +3,24 @@ package com.example.languagelifeline;
 import java.util.ArrayList;
 import java.util.List;
 
+//Class to hold our spanish phrases for both patient and provider
 public class spanishPhrases {
 
+    //Declare our lists
     private List<String> patientPhrases;
     private List<String> providerPhrases;
 
+    //Constructor that sets the patients phrases as the passed in phrase list (may not be useful, will revisit)
     public spanishPhrases(List<String> phrases){
         this.patientPhrases = phrases;
     }
 
+    //Constructor that intializes our lists and populates them
     public spanishPhrases(){
+        //Initialize our lists
         patientPhrases = new ArrayList<>();
         providerPhrases = new ArrayList<>();
+        //Add spanish phrases to patient list
         patientPhrases.add("Necesito usar el baño.");
         patientPhrases.add("Me gustaría comida.");
         patientPhrases.add("Me gustaría agua.");
@@ -47,11 +53,7 @@ public class spanishPhrases {
         patientPhrases.add("Quiero eso más tarde.");
         patientPhrases.add("Necesito la enfermera.");
 
-
-
-
-
-
+        //Add spanish phrases to provider list
         providerPhrases.add("¿Como se llama?");
         providerPhrases.add("¿Hay alguien consigo hoy que habla inglés?");
         providerPhrases.add("Me llamo...");
@@ -104,19 +106,19 @@ public class spanishPhrases {
 
 
     }
-
+    //Function to add a phrase to the provider phrase list
     public void addProviderPhrase(String phrase){
         providerPhrases.add(phrase);
     }
-
+    //Getter to return the provider phrase list
     public List<String> getProviderPhrases() {
         return providerPhrases;
     }
-
+    //Function to add a phrase to the patient lists
     public void addPhrase(String phrase){
         patientPhrases.add(phrase);
     }
-
+    //Getter to return the patient phrases
     public List<String> getPatientPhrases(){
         return patientPhrases;
     }

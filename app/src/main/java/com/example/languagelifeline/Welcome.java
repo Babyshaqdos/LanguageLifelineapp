@@ -19,37 +19,6 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome); //This line will change the displayed UI to whichever layout file you specify
 
-        Button engBtn = (Button)findViewById(R.id.firstlangbtn);
-        Button frenchBtn = (Button)findViewById(R.id.secondlangbtn);
-        Button spanishBtn = (Button)findViewById(R.id.thirdlangbtn);
-
-        engBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
-                intent.putExtra("Language", "English");
-              //  toasty.showToast(view.getContext(), "English button debug msg");
-                startActivity(intent);
-            }
-        });
-
-        frenchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
-                intent.putExtra("Language", "French");
-                startActivity(intent);
-            }
-        });
-
-        spanishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
-                intent.putExtra("Language", "Spanish");
-                startActivity(intent);
-            }
-        });
         //If you have any buttons, text fields, pictures, etc on the UI then this is where you will want to first create and instantiate the object
         //For example if we have a button on our UI it may look something like this
         /*
@@ -58,6 +27,11 @@ public class Welcome extends AppCompatActivity {
         //Note: You will use findViewById to instantiate all objects on your UI so when you create UI be sure to use distinct names for the objects so you can easily find them here
 
 
+        //Declare and instantiate our buttons
+        Button engBtn = (Button)findViewById(R.id.firstlangbtn);
+        Button frenchBtn = (Button)findViewById(R.id.secondlangbtn);
+        Button spanishBtn = (Button)findViewById(R.id.thirdlangbtn);
+
         //If we want to move between UI screens we can use objects called intents, these are objects that can contain as many variables as needed to share between classes
         /*
             Intent newIntent = new Intent(context, ClassYouWantToMoveTo.class)
@@ -65,7 +39,7 @@ public class Welcome extends AppCompatActivity {
         //The first argument, context, is the current class or view level that you are in. This comes into play when we nest intents inside something called listeners
 
 
-        //Listeners are what we use to monitor events inside the app. For example an onClickListener set on a button will trigger the code inside of it whenever that button is clicked on
+        //Listeners are what we use to monitor events inside the app. Essentially an onClickListener set on a button will trigger the code inside of it whenever that button is clicked on
         //For example, lets say we want to change the UI screen when the LoginButton is clicked
         /*
             LoginButton.setOnClickListener(new View.OnClickListener(){
@@ -77,6 +51,35 @@ public class Welcome extends AppCompatActivity {
                 }
             }   //On the UIScreen2 class I will show how to accept the intents and access the variables
          */
+
+        //Set a listener on each of the buttons
+        //When buttons are clicked an intent is created with that buttons language before sending intent to next activity - DisplayPhrases.class
+        engBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
+                intent.putExtra("Language", "English");
+              //  toasty.showToast(view.getContext(), "English button debug msg");
+                startActivity(intent);
+            }
+        });
+        frenchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
+                intent.putExtra("Language", "French");
+                startActivity(intent);
+            }
+        });
+        spanishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DisplayPhrases.class);
+                intent.putExtra("Language", "Spanish");
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

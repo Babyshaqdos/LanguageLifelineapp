@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+//Adapter class that can handle the recycler view and repopulate it with each scroll
 public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.ViewHolder> {
+
+    //Declare our local variables and objects
     private Context context;
     private List<String> phrases;
     private List<String> providerPhrases;
@@ -86,7 +90,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
     //Viewholder class that actually extends the recyclerview and implements the listener
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        //Instantiate all of our buttons and imageviews
+        //Declare our variables
         OnNoteListener onNoteListener;
         public Button btn1;
 
@@ -96,6 +100,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Constructor that is called when class is created, sets the listener and the elements in the view
         public ViewHolder(@NonNull View itemView, OnNoteListener listener) {
             super(itemView);
+            //Instantiate the variables
             this.onNoteListener = listener;
             itemView.setOnClickListener(this);
             btn1 =itemView.findViewById(R.id.btn1);
@@ -103,22 +108,23 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
 
         }
-        @Override
+        @Override  //onClick method that is called when a button is clicked
         public void onClick(View view) {
             try{
-                onNoteListener.onNoteClick(getAdapterPosition());
+                onNoteListener.onNoteClick(getAdapterPosition()); //Allows the code to see what position the adapter was in when the button was clicked, telling us what phrase was selected
             }
             catch (Exception e){
 
             }
         }
 
+        //Getter for the context (not used atm, may want to revisit later)
         public Context getApplicationContext() {
             return context.getApplicationContext();
         }
     }
 
-
+    //OnNoteListener interface must be declared so it can be used in adapter
     public interface OnNoteListener{
         void onNoteClick(int position);
     }

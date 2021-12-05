@@ -3,20 +3,27 @@ package com.example.languagelifeline;
 import java.util.ArrayList;
 import java.util.List;
 
+//Class to hold our french phrases for both patient and provider
 public class frenchPhrases {
+
+    //Declare our lists
     private List<String> patientPhrases;
     private List<String> providerPhrases;
 
 
+    //Constructor that takes a list of phrases and sets as our patient phrases (May not be useful, will look at it later)
     public frenchPhrases(List<String> phrases){
         this.patientPhrases = phrases;
     }
 
 
+    //Constructor that initializes our array lists and add the phrases
     public frenchPhrases(){
+        //Initialize our lists
         patientPhrases = new ArrayList<>();
         providerPhrases = new ArrayList<>();
 
+        //Add the french phrases into the patient phrases
         patientPhrases.add("J’ai besoin d’utiliser la toilette.");
         patientPhrases.add("Je voudrais de la nourriture.");
         patientPhrases.add("Je voudrais de la boisson.");
@@ -49,6 +56,7 @@ public class frenchPhrases {
         patientPhrases.add("Je voudrais ça plus tard.");
         patientPhrases.add("J’ai besoin de infirmier?");
 
+        //Add the french provider phrases into the list
         providerPhrases.add("Comment vous-appelez vous?");
         providerPhrases.add("Il y a quelqu'un ici qui parle l’anglais?");
         providerPhrases.add("Je m’appelle...");
@@ -101,21 +109,23 @@ public class frenchPhrases {
 
     }
 
-
+    //Function to add a provider phrase
     public void addProviderPhrase(String phrase){
         providerPhrases.add(phrase);
     }
 
+    //Getter to return the provider phrases
     public List<String> getProviderPhrases() {
         return providerPhrases;
     }
 
+    //Function to add a phrase to the patient list
     public void addPhrases(String phrase){
         patientPhrases.add(phrase);
     }
 
-
-    public List<String> getFrenchPhrases(){
+    //Getter to return the patient phrases
+    public List<String> getPatientPhrases(){
         return patientPhrases;
     }
 
