@@ -3,8 +3,10 @@ package com.example.languagelifeline;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -111,7 +113,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         int checkedId = materialButtonToggleGroup.getCheckedButtonId();
         MaterialButton patientBtn = materialButtonToggleGroup.findViewById(R.id.patientBtn);
         MaterialButton providerBtn = materialButtonToggleGroup.findViewById(R.id.providerBtn);
-
+        patientBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+        providerBtn.setBackgroundColor(Color.DKGRAY);
 
         //Add the onclick listener to the switch
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
@@ -120,6 +123,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 //Checks which button is checked and populates the button phrases based on the switch position
                 //Default position is the patient
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
+                    patientBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+                    providerBtn.setBackgroundColor(Color.DKGRAY);
                     //toasty.showToast(group.getContext(), "Debug message, patient is checked");
                     user = "Patient";
                     //Checks the current language then populates the buttons with the appropriate language phrases
@@ -151,6 +156,8 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 }
                 else if (group.getCheckedButtonId() == R.id.providerBtn){
                    // toasty.showToast(group.getContext(), "Debug message, provider is checked");
+                    providerBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+                    patientBtn.setBackgroundColor(Color.DKGRAY);
                     user = "Provider";
                         switch(currentLanguage){
                             case "English":

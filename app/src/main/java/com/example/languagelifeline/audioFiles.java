@@ -128,7 +128,7 @@ public class audioFiles {
                 translateFrench();
                 break;
             case "English":
-              //  translateEnglish();
+                translateEnglish();
                 break;
             default: //Will want to find a better way of handling default languages in the future
               //  translateEnglish();
@@ -248,7 +248,55 @@ public class audioFiles {
 
     //Function to translate provider phrases into english (not used for 1st half of project, will revisit when option to change default language is implemented)
     public void translateEnglish(){
-
+        engProviderAudio.put("What is your name?", R.raw.what_is_your_name);
+        engProviderAudio.put("Does someone with you today speak English?", R.raw.hay_alguien_consigo_hoy_que_habla_ingles);
+        engProviderAudio.put("My name is ", R.raw.me_llamo);
+        engProviderAudio.put("I am your day shift nurse", R.raw.soy_su_enfermera_hoy);
+        engProviderAudio.put("I am your night shift nurse", R.raw.soy_su_enfermera_esta_noche);
+        engProviderAudio.put("I am your doctor", R.raw.soy_su_doctor);
+        engProviderAudio.put("I am your nursing assistant", R.raw.soy_su_asistente_de_enfermeria);
+        engProviderAudio.put("Would you like me to call a chaplain?", R.raw.quiere_que_llame_a_un_capellan);
+        engProviderAudio.put("Do you need to use the toilet?", R.raw.necesita_usar_el_bano);
+        engProviderAudio.put("Would you like me to wipe you?", R.raw.puedo_ayudarse_a_limpiar);
+        engProviderAudio.put("Are you hungry?", R.raw.tiene_hambre);
+        engProviderAudio.put("Are you thirsty?", R.raw.tiene_sed);
+        engProviderAudio.put("Would you like the door shut?", R.raw.quiere_que_yo_cierre_la_puerta);
+        engProviderAudio.put("Do you understand?", R.raw.entiende);
+        engProviderAudio.put("I will be right back", R.raw.regreso_en_un_momento);
+        engProviderAudio.put("Can I give you your sponge bath now?", R.raw.puedo_darte_un_bano_de_esponja_ahora);
+        engProviderAudio.put("Are you ready to sit up in the chair?", R.raw.esta_preparado_para_sentirse_en_la_silla);
+        engProviderAudio.put("Are you ready to take a walk?", R.raw.esta_preparado_para_caminar);
+        engProviderAudio.put("Do you want a new gown?", R.raw.quiere_una_bata_hospitalaria_nueva);
+        engProviderAudio.put("I am going to put on your socks now", R.raw.voy_a_ponerse_los_calcetines_ahora);
+        engProviderAudio.put("Do you have pain?", R.raw.puede_senalar_donde_le_duele);
+        engProviderAudio.put("Can you point to where your pain is?", R.raw.tiene_dolor);
+        engProviderAudio.put("What is your pain level?", R.raw.cual_es_su_nivel_de_dolor);
+        engProviderAudio.put("Would you like ice?", R.raw.quiere_hielo);
+        engProviderAudio.put("Does your pain keep you from sleeping?", R.raw.es_su_dolor_tan_grave_que_no_puede_dormir);
+        engProviderAudio.put("Can I call someone for you?", R.raw.puedo_ayudarle_a_llamar_a_alguien_por_telefono);
+        engProviderAudio.put("How can I help you?",  R.raw.como_puedo_ayudarle);
+        engProviderAudio.put("Are you comfortable?", R.raw.esta_comoda);
+        engProviderAudio.put("Would you like me to move you in bed?", R.raw.quiere_que_le_coloque_en_otra_posicion);
+        engProviderAudio.put("It is time to turn you in bed", R.raw.es_hora_de_darle_vuelta);
+        engProviderAudio.put("I am here with your meal", R.raw.tengo_su_comida_aqui);
+        engProviderAudio.put("Would you like me to open anything for you?", R.raw.quiere_que_abra_alguna_cosa_para_usted);
+        engProviderAudio.put("Is the room too warm?", R.raw.es_demasiado_calido_el_cuarto);
+        engProviderAudio.put("Is the room too cold?", R.raw.es_demasiado_frio_el_cuarto);
+        engProviderAudio.put("I will be right back to assist you", R.raw.regreso_en_un_momento_para_ayudarle);
+        engProviderAudio.put("I am here with your medications", R.raw.estoy_aqui_con_sus_medicinas);
+        engProviderAudio.put("I am  sorry, I was delayed", R.raw.lo_siento_fui_retrasado);
+        engProviderAudio.put("I will send the nurse in to assist you", R.raw.enviare_la_enfermera_para_ayudarle);
+        engProviderAudio.put("The doctor will be right with you", R.raw.el_doctor_estara_consigo_muy_pronto);
+        engProviderAudio.put("I will check your vitals now", R.raw.voy_a_verificar_los_signos_vitales_ahora);
+        engProviderAudio.put("I'm going to check your blood pressure now", R.raw.voy_a_medir_su_presion_arterial);
+        engProviderAudio.put("I will check your temperature now", R.raw.voy_a_verificar_su_temperatura);
+        engProviderAudio.put("I am here to draw your blood", R.raw.estoy_aqui_para_extraer_sangre);
+        engProviderAudio.put("I am here for respiratory therapy", R.raw.estoy_aqui_para_darle_terapia_respiratoria);
+        engProviderAudio.put("I am here to give you a breathing treatment", R.raw.estoy_aqui_para_darle_un_tratamiento_respiratorio);
+        engProviderAudio.put("I am here to take you for an X-Ray", R.raw.estoy_aqui_para_llevarle_a_un_examen_de_rayos_x);
+        engProviderAudio.put("I am here to take you for an MRI", R.raw.estoy_aqui_para_llevarle_a_un_examen_de_rmn);
+        engProviderAudio.put("Are you breathing okay?", R.raw.respiras_bien);
+        engProviderAudio.put("Are you having troubles breathing?", R.raw.tiene_dificultad_para_respirar);
     }
 
 
