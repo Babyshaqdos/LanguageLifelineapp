@@ -9,12 +9,12 @@ import java.util.Map;
 //This class will contain the hash map that pairs each String representing a phrase with the appropriate audio file
 public class audioFiles {
     //Declare and instantiate our hash maps, will need to find a way to generate these with code for 2nd half of the project
-    static Map<String, Integer> engPatientAudio = new HashMap<String, Integer>();
-    static Map<String, Integer> engProviderAudio = new HashMap<String, Integer>();
-    static Map<String, Integer> spanPatientAudio = new HashMap<String, Integer>();
-    static Map<String, Integer> spanProviderAudio = new HashMap<String, Integer>();
-    static Map<String, Integer> frenchPatientAudio = new HashMap<String, Integer>();
-    static Map<String, Integer> frenchProviderAudio = new HashMap<String, Integer>();
+    Map<String, Integer> engPatientAudio = new HashMap<String, Integer>();
+    Map<String, Integer> engProviderAudio = new HashMap<String, Integer>();
+    Map<String, Integer> spanPatientAudio = new HashMap<String, Integer>();
+    Map<String, Integer> spanProviderAudio = new HashMap<String, Integer>();
+    Map<String, Integer> frenchPatientAudio = new HashMap<String, Integer>();
+    Map<String, Integer> frenchProviderAudio = new HashMap<String, Integer>();
 
     //Constructor that takes the language the provider needs translated as input
     public audioFiles(String translateToLanguage){
@@ -128,10 +128,10 @@ public class audioFiles {
                 translateFrench();
                 break;
             case "English":
-                translateEnglish();
+              //  translateEnglish();
                 break;
             default: //Will want to find a better way of handling default languages in the future
-                translateEnglish();
+              //  translateEnglish();
                 break;
         }
 
@@ -253,19 +253,19 @@ public class audioFiles {
 
 
     //Getter functions to return the hash maps
-    public static Map<String, Integer> getEngProviderAudio(){
+    public Map<String, Integer> getEngProviderAudio(){
         return engProviderAudio;
     }
-    public static Map<String, Integer> getSpanProviderAudio(){
+    public Map<String, Integer> getSpanProviderAudio(){
         return spanProviderAudio;
     }
-    public static Map<String, Integer> getEngPatientAudio() {
+    public Map<String, Integer> getEngPatientAudio() {
         return engPatientAudio;
     }
-    public static Map<String, Integer> getSpanPatientAudio(){
+    public Map<String, Integer> getSpanPatientAudio(){
         return spanPatientAudio;
     }
-    public static Map<String, Integer> getFrenchPatientAudio(){
+    public Map<String, Integer> getFrenchPatientAudio(){
         return frenchPatientAudio;
     }
 

@@ -3,10 +3,12 @@ package com.example.languagelifeline;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +40,13 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     final Utils toasty = new Utils();
     private audioFiles audioFiles;
     public Map<String, Integer> audioMap;
+    public ImageButton repeatBtn;
+    public Button yesBtn;
+    public Button noBtn;
+    public Button dontUnderstandBtn;
+    public Button needInterpreterBtn;
+    public Button didntmeantoBtn;
+
 
 
 
@@ -56,25 +65,34 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         frenchPhrases = new frenchPhrases();
         spanishPhrases = new spanishPhrases();
         translatedPhrase = engPhrase.getProviderPhrases();
-
+        repeatBtn = (ImageButton)findViewById(R.id.repeatButton);
+        yesBtn = (Button)findViewById(R.id.yesbtn);
+        noBtn = (Button)findViewById(R.id.nobtn);
+        audioFiles = new audioFiles("English");
+        dontUnderstandBtn = (Button)findViewById(R.id.dontunderstandbtn);
+        needInterpreterBtn = (Button)findViewById(R.id.needInterpreter);
+        didntmeantoBtn = (Button)findViewById(R.id.didntMeanToBtn);
         //Get our intent, used to send variable information between activities
         Intent receivingIntent = getIntent();
 
         //Get the current language to populate the phrases/buttons
         currentLanguage = receivingIntent.getStringExtra("Language");
-        setLanguage(currentLanguage);
+       // setLanguage(currentLanguage);
         try{ //Want to use a try catch here to handle any exceptions raised by receiving an empty intent, non empty intents are sent from scrolling adapter on the onclick
             String patientTranslation = receivingIntent.getStringExtra("PatientPhrase");
             patientText.setText(patientTranslation);
             audioFiles = new audioFiles(currentLanguage);
             String providerTranslation = receivingIntent.getStringExtra("ProviderPhrase");
             providerText.setText(providerTranslation);
+        //    toasty.showToast(this, "Debug message, we are about to call setLanguage(" + currentLanguage + ") in our try catch block");
+            setLanguage(currentLanguage);
         }
         catch (Exception e){
             //Set audioFiles to default if no intent information was passed, used in the case of going from welcome screen to main screen
             audioFiles = new audioFiles("English");
+            setLanguage("English");
         }
-
+       // setRecyclerViewPhrases();
         //Instantiate the button to send the user back to the home page to select a new language
         Button homeBtn = (Button)findViewById(R.id.homeBtn);
 
@@ -191,27 +209,192 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
 
     @Override //Function that sets the language in the app to the selected language (May be redundant, will circle back to this and getLanguage)
     public void setLanguage(String language) {
-        switch (language) {
+        switch (language){
             case "English":
                 phrases = engPhrase.getPatientPhrases();
+                translatedPhrase = engPhrase.getPatientPhrases();
                 audioMap = audioFiles.getEngPatientAudio();
-                setRecyclerViewPhrases();
+                yesBtn.setText("Yes");
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.yes);
+                        mediaPlayer.start();
+                    }
+                });
+                noBtn.setText("No");
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.no_english);
+                        mediaPlayer.start();
+                    }
+                });
+                didntmeantoBtn.setText("I didn't mean to say that");
+                didntmeantoBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_didn_t_mean_to_say_that);
+                        mediaPlayer.start();
+                    }
+                });
+                dontUnderstandBtn.setText("I don't understand");
+                dontUnderstandBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_don_t_understand);
+                        mediaPlayer.start();
+                    }
+                });
+                needInterpreterBtn.setText("I need an interpreter");
+                needInterpreterBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_need_an_interpreter);
+                        mediaPlayer.start();
+                    }
+                });
+         //       setRecyclerViewPhrases();
                 break;
             case "French":
                 phrases = frenchPhrases.getPatientPhrases();
-                audioMap = audioFiles.getFrenchPatientAudio();
-                setRecyclerViewPhrases();
+                translatedPhrase = engPhrase.getPatientPhrases();
+                audioMap = audioFiles.getFrenchPatientAudio(); //Changed from get eng provider
+                yesBtn.setText("Oui");
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.oui);
+                        mediaPlayer.start();
+                    }
+                });
+                noBtn.setText("Non");
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.non);
+                        mediaPlayer.start();
+                    }
+                });
+                didntmeantoBtn.setText("Je ne voulais pas dire ça");
+                didntmeantoBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.je_ne_voulais_pas_dire_ca);
+                        mediaPlayer.start();
+                    }
+                });
+                dontUnderstandBtn.setText("Je ne comprends pas");
+                dontUnderstandBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.je_ne_comprends_pas);
+                        mediaPlayer.start();
+                    }
+                });
+                needInterpreterBtn.setText("J'ai besoin d'un interprète");
+                needInterpreterBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.j_ai_besoin_d_un_interprete);
+                        mediaPlayer.start();
+                    }
+                });
+           //     setRecyclerViewPhrases();
                 break;
             case "Spanish":
                 phrases = spanishPhrases.getPatientPhrases();
+                translatedPhrase = engPhrase.getPatientPhrases();
                 audioMap = audioFiles.getSpanPatientAudio();
-                setRecyclerViewPhrases();
+                yesBtn.setText("Sí");
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.si);
+                        mediaPlayer.start();
+                    }
+                });
+                noBtn.setText("No");
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.no_spanish);
+                        mediaPlayer.start();
+                    }
+                });
+                didntmeantoBtn.setText("No quise");
+                didntmeantoBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.no_quise_decir_eso);
+                        mediaPlayer.start();
+                    }
+                });
+                dontUnderstandBtn.setText("No entiendo");
+                dontUnderstandBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.no_entiendo);
+                        mediaPlayer.start();
+                    }
+                });
+                needInterpreterBtn.setText("Necesito un intérprete");
+                needInterpreterBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.necesito_un_interprete);
+                        mediaPlayer.start();
+                    }
+                });
+            //    setRecyclerViewPhrases();
                 break;
             default:
                 phrases = engPhrase.getPatientPhrases();
+                translatedPhrase = engPhrase.getPatientPhrases();
                 audioMap = audioFiles.getEngPatientAudio();
-                setRecyclerViewPhrases();
+                yesBtn.setText("Yes");
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.yes);
+                        mediaPlayer.start();
+                    }
+                });
+                noBtn.setText("No");
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.no_english);
+                        mediaPlayer.start();
+                    }
+                });
+                didntmeantoBtn.setText("I didn't mean to say that");
+                didntmeantoBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_didn_t_mean_to_say_that);
+                        mediaPlayer.start();
+                    }
+                });
+                dontUnderstandBtn.setText("I don't understand");
+                dontUnderstandBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_don_t_understand);
+                        mediaPlayer.start();
+                    }
+                });
+                needInterpreterBtn.setText("I need an interpreter");
+                needInterpreterBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), R.raw.i_need_an_interpreter);
+                        mediaPlayer.start();
+                    }
+                });
+                break;
         }
+        setRecyclerViewPhrases();
     }
 
 

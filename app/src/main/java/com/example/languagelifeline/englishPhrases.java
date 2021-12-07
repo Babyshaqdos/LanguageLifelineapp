@@ -105,7 +105,7 @@ public class englishPhrases {
         providerPhrases.add("I am here for respiratory therapy");
         providerPhrases.add("I am here to give you a breathing treatment");
         providerPhrases.add("I am here to take you for an X-Ray");
-        providerPhrases.add("I am here to take you for an MRI.");
+        providerPhrases.add("I am here to take you for an MRI");
         providerPhrases.add("Are you breathing okay?");
         providerPhrases.add("Are you having trouble breathing?");
 
