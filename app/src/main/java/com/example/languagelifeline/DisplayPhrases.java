@@ -38,10 +38,11 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     private spanishPhrases spanishPhrases;
     public String user;
     public TextView patientText;
+    public Context context;
     public TextView providerText;
     final Utils toasty = new Utils();
     private audioFiles audioFiles;
-    public Map<String, Integer> audioMap;
+    public Map<String, Integer> audioMap = new HashMap<>();
     public ImageButton repeatBtn;
     public Button yesBtn;
     public Button noBtn;
@@ -60,9 +61,9 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         //Instantiate our variables and objects for local use
         phrases = new ArrayList<>();
         user = "Patient";
+        context = this.getApplicationContext();
         patientText = (TextView)findViewById(R.id.patientPhrase);
         providerText = (TextView)findViewById(R.id.providerPhrase);
-        audioMap = new HashMap<>();
         engPhrase = new englishPhrases();
         frenchPhrases = new frenchPhrases();
         spanishPhrases = new spanishPhrases();
@@ -86,6 +87,23 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             audioFiles = new audioFiles(currentLanguage);
             String providerTranslation = receivingIntent.getStringExtra("ProviderPhrase");
             providerText.setText(providerTranslation);
+            setAudioMap(currentLanguage, user);
+            String repeatAudio = receivingIntent.getStringExtra("AudioFile");
+           // toasty.showToast(context, repeatAudio);
+            repeatBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try{
+                        MediaPlayer mediaPlayer = MediaPlayer.create(view.getContext(), audioMap.get(repeatAudio));
+                        mediaPlayer.start();
+                    }
+                    catch (Exception e){
+                        //Do nothing
+
+                    }
+
+                }
+            });
         //    toasty.showToast(this, "Debug message, we are about to call setLanguage(" + currentLanguage + ") in our try catch block");
             setLanguage(currentLanguage);
         }
@@ -212,6 +230,28 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         //Intent information can be retrieved here if we call getLanguage from the onCreate method, helpful for clarity of program
         String currLang = language;
         return currLang;
+    }
+
+
+    public void setAudioMap(String language, String user){
+        switch(user){
+            case "Patient":
+                switch(language){
+                    case "English":
+                        audioMap = audioFiles.getEngPatientAudio();
+                        break;
+                    case "French":
+                        audioMap = audioFiles.getFrenchPatientAudio();
+                        break;
+                    case "Spanish":
+                        audioMap = audioFiles.getSpanPatientAudio();
+                        break;
+                }
+            case "Provider":
+                audioFiles = new audioFiles(language);
+                audioMap = audioFiles.getEngProviderAudio();
+                break;
+        }
     }
 
     @Override //Function that sets the language in the app to the selected language (May be redundant, will circle back to this and getLanguage)

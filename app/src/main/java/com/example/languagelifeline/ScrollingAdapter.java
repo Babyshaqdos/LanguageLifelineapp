@@ -75,6 +75,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
                 Intent intent = new Intent(context, DisplayPhrases.class);
                 intent.putExtra("PatientPhrase", phrases.get(finalPosition));
                 intent.putExtra("ProviderPhrase", translatedProviderPhrases.get(finalPosition));
+                intent.putExtra("AudioFile", holderPhrase);
                 intent.putExtra("Language", language);
                 context.startActivity(intent);
             }
