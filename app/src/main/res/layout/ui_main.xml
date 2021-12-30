@@ -23,6 +23,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:paddingBottom="50dp"
+        android:backgroundTint="@color/Celadon_Blue"
         app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,17 +37,23 @@
         android:layout_width="500dp"
         android:layout_height="73dp"
         android:text="Home"
+        android:backgroundTint="@color/Gray_1"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageButton
         android:id="@+id/repeatButton"
-        android:layout_width="90dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginRight="220dp"
-        android:src="@mipmap/repeat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="235dp"
+        android:layout_marginRight="235dp"
+        android:background="@color/Viridian_Green"
+        android:scaleType="fitCenter"
+        android:paddingVertical="13dp"
+        android:src="@drawable/final_replay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/providerPhrase"></ImageButton>
 
@@ -57,7 +64,8 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:hint="I didn't mean to say that (in currently selected language)"
+        android:backgroundTint="@color/Viridian_Green"
+        android:text="I didn't mean to say that"
         app:layout_constraintEnd_toStartOf="@+id/nobtn"
         app:layout_constraintTop_toBottomOf="@+id/repeatButton">
 
@@ -67,6 +75,7 @@
         android:id="@+id/toggleGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         app:checkedButton="@id/patientBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +89,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/Gray_1"
+            android:textColor="@color/white"
             android:text="Patient" />
 
         <Button
@@ -88,6 +99,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/Gray_1"
             android:text="Provider" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -106,6 +119,7 @@
         android:layout_height="66dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:backgroundTint="@color/Ocean_Green"
         android:text="Yes"
         app:layout_constraintBottom_toTopOf="@+id/dontunderstandbtn"
         app:layout_constraintEnd_toStartOf="@+id/didntMeanToBtn"
@@ -119,6 +133,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="No"
+        android:backgroundTint="@color/Red_no"
         app:layout_constraintBottom_toTopOf="@+id/needInterpreter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repeatButton"
@@ -133,7 +148,8 @@
         android:layout_marginRight="212dp"
         android:layout_marginBottom="50dp"
         android:paddingBottom="15dp"
-        android:text="I dont understand "
+        android:backgroundTint="@color/Viridian_Green"
+        android:text="I don't understand "
         app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
         app:layout_constraintEnd_toStartOf="@+id/needInterpreter"
         app:layout_constraintTop_toBottomOf="@+id/yesbtn" />
@@ -147,6 +163,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="50dp"
         android:text="I need an interpreter"
+        android:backgroundTint="@color/Viridian_Green"
         app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nobtn" />

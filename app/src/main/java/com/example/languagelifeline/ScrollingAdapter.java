@@ -16,25 +16,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+//Adapter class that can handle the recycler view and repopulate it with each scroll
 public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.ViewHolder> {
+
+    //Declare our local variables and objects
     private Context context;
     private List<String> phrases;
     private List<String> providerPhrases;
+    private List<String> translatedProviderPhrases;
     private OnNoteListener mOnNoteListener;
     private String language;
     private String user;
-    String newPhraseglobal = "";
     private Map<String, Integer> audioFiles;
 
 
-    //Constructor that takes the current context and the list of phrases
-    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles){
+    //Constructor that takes the current context, list of phrases for both provider and patient, the current language, whether the user is a patient or provider, and a map of the audiofiles
+    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles, List<String> translatedProviderPhrases){
         this.phrases= phrases;
         this.context=context;
         this.language = language;
         this.user = user;
         this.providerPhrases = providerPhrases;
         this.audioFiles = audioFiles;
+        this.translatedProviderPhrases = translatedProviderPhrases;
     }
 
     //Constructor that takes the current context, the list of phrases, and a listener for the buttons in the view
@@ -54,28 +59,26 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     //This method is called any time the viewholder is updated, aka whenever the user scrolls on the left side of the screen
     @Override //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Utils toasty = new Utils();
-        String newPhrase;
-        //Debugging message
-       // toasty.showToast(context, "Our position value is " + position);
-        holder.btn1.setText(phrases.get(position));
+        final Utils toasty = new Utils(); //Class that holds our toast message function (used for debugging purposes)
+
+        holder.btn1.setText(phrases.get(position)); //Holder is the viewgroup containing the phraselistui layout, line sets the button text based on the position in the phrases
         int finalPosition = position;
-        holder.btn1.setOnClickListener(new View.OnClickListener() {
+        holder.btn1.setOnClickListener(new View.OnClickListener() { //Set an onclick listener to the button
             @Override
             public void onClick(View view) {
-                String holder = phrases.get(finalPosition);
-                toasty.showToast(context, holder);
-                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holder));
+                String holderPhrase = phrases.get(finalPosition); //Get the phrase using our final int
+              //  toasty.showToast(context, holderPhrase);
+                //Create a media player object and pass in the correct audio file
+                MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holderPhrase));
                 newMedia.start();
+                //Create a new intent with the selected phrase and provider phrase based on the position then send to the main activity to update the textviews
                 Intent intent = new Intent(context, DisplayPhrases.class);
                 intent.putExtra("PatientPhrase", phrases.get(finalPosition));
-                intent.putExtra("ProviderPhrase", providerPhrases.get(finalPosition));
+                intent.putExtra("ProviderPhrase", translatedProviderPhrases.get(finalPosition));
                 intent.putExtra("Language", language);
                 context.startActivity(intent);
             }
         });
-        //Probably want to change this to a switch at some point
-        //Sets each button with a phrase from the phrases list
 
     }
 
@@ -87,18 +90,9 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
     //Viewholder class that actually extends the recyclerview and implements the listener
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        //Instantiate all of our buttons and imageviews
+        //Declare our variables
         OnNoteListener onNoteListener;
         public Button btn1;
-        public Button btn2;
-        public Button btn3;
-        public Button btn4;
-        public Button btn5;
-        public Button btn6;
-        public Button btn7;
-        public Button btn8;
-        public Button btn9;
-        public Button btn10;
 
 
 
@@ -106,6 +100,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
         //Constructor that is called when class is created, sets the listener and the elements in the view
         public ViewHolder(@NonNull View itemView, OnNoteListener listener) {
             super(itemView);
+            //Instantiate the variables
             this.onNoteListener = listener;
             itemView.setOnClickListener(this);
             btn1 =itemView.findViewById(R.id.btn1);
@@ -113,22 +108,23 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
 
         }
-        @Override
+        @Override  //onClick method that is called when a button is clicked
         public void onClick(View view) {
             try{
-                onNoteListener.onNoteClick(getAdapterPosition());
+                onNoteListener.onNoteClick(getAdapterPosition()); //Allows the code to see what position the adapter was in when the button was clicked, telling us what phrase was selected
             }
             catch (Exception e){
 
             }
         }
 
+        //Getter for the context (not used atm, may want to revisit later)
         public Context getApplicationContext() {
             return context.getApplicationContext();
         }
     }
 
-
+    //OnNoteListener interface must be declared so it can be used in adapter
     public interface OnNoteListener{
         void onNoteClick(int position);
     }

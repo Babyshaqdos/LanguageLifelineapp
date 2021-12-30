@@ -3,8 +3,10 @@ package com.example.languagelifeline;
 import java.util.ArrayList;
 import java.util.List;
 
+//Class to hold our english phrases for both patient and provider
 public class englishPhrases {
-    private List<String> englishPhrases;
+    //Declare our list of phrases for both patients and providers
+    private List<String> patientPhrases;
     private List<String> providerPhrases;
 
 
@@ -15,51 +17,51 @@ public class englishPhrases {
 
     //Constructor that intializes the englishPhrases arraylist
     public englishPhrases(){
-        englishPhrases = new ArrayList<>();
+        //Initalize our lists
+        patientPhrases = new ArrayList<>();
         providerPhrases = new ArrayList<>();
-        //We need to add code here to populate the phrase list
-        //Go phrase by phrase and add them like so
-        //Might be able to make this better by placing all of the phrases inside of a text file then reading the text file and parsing it into the arraylist
-        englishPhrases.add("I need to use the toilet");
-        englishPhrases.add("I would like some food");
-        englishPhrases.add("I would like some water");
-        englishPhrases.add("What is this?");
-        englishPhrases.add("My pain is better");
-        englishPhrases.add("My pain is worse");
-        englishPhrases.add("My pain is the same");
-        englishPhrases.add("My stomach hurts");
-        englishPhrases.add("I am dizzy");
-        englishPhrases.add("I do not feel good");
-        englishPhrases.add("I feel weak");
-        englishPhrases.add("I am having trouble breathing");
-        englishPhrases.add("I feel nauseous");
-        englishPhrases.add("I think I have a fever, could you take my temperature?");
-        englishPhrases.add("Can you check my vitals?");
-        englishPhrases.add("Can you charge my phone");
-        englishPhrases.add("I need to make a phone call");
-        englishPhrases.add("Can you close my blinds?");
-        englishPhrases.add("Can you open my blinds?");
-        englishPhrases.add("I cannot sleep");
-        englishPhrases.add("I would like some medication to help me sleep");
-        englishPhrases.add("Can I have a pillow?");
-        englishPhrases.add("Can I have a blanket?");
-        englishPhrases.add("Can I move to the chair?");
-        englishPhrases.add("Can I raise my head?");
-        englishPhrases.add("Can I lower my head?");
-        englishPhrases.add("Can I change my position?");
-        englishPhrases.add("I feel uncomfortable");
-        englishPhrases.add("I would like to do that myself");
-        englishPhrases.add("I would like that later");
-        englishPhrases.add("May I see the nurse?");
+        //Add the phrases into the patient list, will want to want better way of doing this similar to the audio files class
+        //Potential solutions: Place phrases into text file and parse text file into the list
+        patientPhrases.add("I need to use the toilet");
+        patientPhrases.add("I would like some food");
+        patientPhrases.add("I would like some water");
+        patientPhrases.add("What is this?");
+        patientPhrases.add("My pain is better");
+        patientPhrases.add("My pain is worse");
+        patientPhrases.add("My pain is the same");
+        patientPhrases.add("My stomach hurts");
+        patientPhrases.add("I am dizzy");
+        patientPhrases.add("I do not feel good");
+        patientPhrases.add("I feel weak");
+        patientPhrases.add("I am having trouble breathing");
+        patientPhrases.add("I feel nauseous");
+        patientPhrases.add("I think I have a fever, could you take my temperature?");
+        patientPhrases.add("Can you check my vitals?");
+        patientPhrases.add("Can you charge my phone");
+        patientPhrases.add("I need to make a phone call");
+        patientPhrases.add("Can you close my blinds?");
+        patientPhrases.add("Can you open my blinds?");
+        patientPhrases.add("I cannot sleep");
+        patientPhrases.add("I would like some medication to help me sleep");
+        patientPhrases.add("Can I have a pillow?");
+        patientPhrases.add("Can I have a blanket?");
+        patientPhrases.add("Can I move to the chair?");
+        patientPhrases.add("Can I raise my head?");
+        patientPhrases.add("Can I lower my head?");
+        patientPhrases.add("Can I change my position?");
+        patientPhrases.add("I feel uncomfortable");
+        patientPhrases.add("I would like to do that myself");
+        patientPhrases.add("I would like that later");
+        patientPhrases.add("May I see the nurse?");
 
 
 
 
 
-
+        //Add the provider phrases into the list
         providerPhrases.add("What is your name?");
         providerPhrases.add("Does someone with you today speak English?");
-        providerPhrases.add("My name is…");
+        providerPhrases.add("My name is");
         providerPhrases.add("I am your day-shift nurse");
         providerPhrases.add("I am your night-shift nurse");
         providerPhrases.add("I am your doctor");
@@ -103,7 +105,7 @@ public class englishPhrases {
         providerPhrases.add("I am here for respiratory therapy");
         providerPhrases.add("I am here to give you a breathing treatment");
         providerPhrases.add("I am here to take you for an X-Ray");
-        providerPhrases.add("I am here to take you for an MRI.");
+        providerPhrases.add("I am here to take you for an MRI");
         providerPhrases.add("Are you breathing okay?");
         providerPhrases.add("Are you having trouble breathing?");
 
@@ -115,19 +117,20 @@ public class englishPhrases {
 
     //Function to add phrase from another class
     public void addPhrasePatient(String newPhrase){
-        englishPhrases.add((newPhrase));
+        patientPhrases.add((newPhrase));
     }
 
-
-    public List<String> getEnglishPhrases(){
-        return englishPhrases;
+    //Getter to return the patient phrases
+    public List<String> getPatientPhrases(){
+        return patientPhrases;
     }
 
-
+    //Function to add phrase to provider list from another class
     public void addPhraseProvider(String newPhrase){
         providerPhrases.add(newPhrase);
     }
 
+    //Getter to return the provider phrases
     public List<String> getProviderPhrases(){
         return providerPhrases;
     }
