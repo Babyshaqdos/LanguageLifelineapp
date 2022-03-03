@@ -1,6 +1,7 @@
 package com.example.languagelifeline;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -32,9 +33,15 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
 
     //Constructor that takes the current context, list of phrases for both provider and patient, the current language, whether the user is a patient or provider, and a map of the audiofiles
-    public ScrollingAdapter(Context context, List<String> phrases, String language, String user, List<String> providerPhrases, Map<String, Integer> audioFiles, List<String> translatedProviderPhrases){
-        this.phrases= phrases;
-        this.context=context;
+    public ScrollingAdapter(Context context,
+                            List<String> phrases,
+                            String language,
+                            String user,
+                            List<String> providerPhrases,
+                            Map<String, Integer> audioFiles,
+                            List<String> translatedProviderPhrases) {
+        this.phrases = phrases;
+        this.context = context;
         this.language = language;
         this.user = user;
         this.providerPhrases = providerPhrases;
@@ -43,21 +50,23 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     }
 
     //Constructor that takes the current context, the list of phrases, and a listener for the buttons in the view
-    public ScrollingAdapter(Context context, List<String> phrases, OnNoteListener listener){
+    public ScrollingAdapter(Context context, List<String> phrases, OnNoteListener listener) {
         this.phrases = phrases;
         this.context = context;
         mOnNoteListener = listener;
     }
 
     @NonNull
-    @Override //This method is called when the viewholder is called for the first time, inflates the phraselistUI into the parent view
+    @Override
+    //This method is called when the viewholder is called for the first time, inflates the phraselistUI into the parent view
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.phraselistui, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.phraselistui, parent, false);
         return new ScrollingAdapter.ViewHolder(view, mOnNoteListener);
     }
 
     //This method is called any time the viewholder is updated, aka whenever the user scrolls on the left side of the screen
-    @Override //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
+    @Override
+    //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Utils toasty = new Utils(); //Class that holds our toast message function (used for debugging purposes)
 
@@ -67,7 +76,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             @Override
             public void onClick(View view) {
                 String holderPhrase = phrases.get(finalPosition); //Get the phrase using our final int
-              //  toasty.showToast(context, holderPhrase);
+                //  toasty.showToast(context, holderPhrase);
                 //Create a media player object and pass in the correct audio file
                 MediaPlayer newMedia = MediaPlayer.create(view.getContext(), audioFiles.get(holderPhrase));
                 newMedia.start();
@@ -90,12 +99,10 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
 
 
     //Viewholder class that actually extends the recyclerview and implements the listener
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //Declare our variables
         OnNoteListener onNoteListener;
         public Button btn1;
-
-
 
 
         //Constructor that is called when class is created, sets the listener and the elements in the view
@@ -104,17 +111,16 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
             //Instantiate the variables
             this.onNoteListener = listener;
             itemView.setOnClickListener(this);
-            btn1 =itemView.findViewById(R.id.btn1);
-
+            btn1 = itemView.findViewById(R.id.btn1);
 
 
         }
+
         @Override  //onClick method that is called when a button is clicked
         public void onClick(View view) {
-            try{
+            try {
                 onNoteListener.onNoteClick(getAdapterPosition()); //Allows the code to see what position the adapter was in when the button was clicked, telling us what phrase was selected
-            }
-            catch (Exception e){
+            } catch (Exception e) {
 
             }
         }
@@ -126,7 +132,7 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     }
 
     //OnNoteListener interface must be declared so it can be used in adapter
-    public interface OnNoteListener{
+    public interface OnNoteListener {
         void onNoteClick(int position);
     }
 

@@ -1,16 +1,15 @@
 package com.example.languagelifeline;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +30,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     //Declare our variables and objects for local use in DisplayPhrases class
     private RecyclerView recyclerViewPhrases;
     private ScrollingAdapter scrollingAdapter;
+    private boolean initial_display = true;
     public List<String> phrases;
     public List<String> translatedPhrase;
     public String currentLanguage;
@@ -57,6 +58,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     @Override //onCreate is called as soon as this activity is started
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utils.onActivityCreateSetTheme(this);
         setContentView(R.layout.ui_main); //Set the layout
         //Instantiate our variables and objects for local use
         phrases = new ArrayList<>();
@@ -112,6 +114,35 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             audioFiles = new audioFiles("English");
             setLanguage("English");
         }
+        Spinner textSizeDropdown = (Spinner) findViewById(R.id.textSizeDropdown);
+        textSizeDropdown.setSelection(Utils.getCurrentIndex(), false);
+        textSizeDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                System.out.println(i);
+                if (Utils.getCurrentIndex() == i) return;
+                System.out.println("Option:" + i + " selected!");
+                switch (i) {
+                    case 0:
+                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.SMALL);
+                        break;
+                    case 1:
+                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.MEDIUM);
+                        break;
+                    case 2:
+                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.LARGE);;
+                        break;
+                    default:
+                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.MEDIUM);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
        // setRecyclerViewPhrases();
         //Instantiate the button to send the user back to the home page to select a new language
         Button homeBtn = (Button)findViewById(R.id.homeBtn);

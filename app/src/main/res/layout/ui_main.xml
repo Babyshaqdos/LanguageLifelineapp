@@ -90,8 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/Gray_1"
-            android:textColor="@color/white"
-            android:text="Patient" />
+            android:text="Patient"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/providerBtn"
@@ -99,9 +99,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/white"
             android:backgroundTint="@color/Gray_1"
-            android:text="Provider" />
+            android:text="Provider"
+            android:textColor="@color/white" />
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -167,6 +167,19 @@
         app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nobtn" />
+
+    <Spinner
+        android:id="@+id/textSizeDropdown"
+        android:layout_width="177dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="24dp"
+        android:entries="@array/textSizes"
+        android:rotationX="0"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/toggleGroup"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
