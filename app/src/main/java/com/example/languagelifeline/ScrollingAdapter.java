@@ -68,7 +68,6 @@ public class ScrollingAdapter extends RecyclerView.Adapter<ScrollingAdapter.View
     @Override
     //Will get the position of the scrollbar then update the buttons according (Still needs image updating adding)
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Utils toasty = new Utils(); //Class that holds our toast message function (used for debugging purposes)
 
         holder.btn1.setText(phrases.get(position)); //Holder is the viewgroup containing the phraselistui layout, line sets the button text based on the position in the phrases
         int finalPosition = position;

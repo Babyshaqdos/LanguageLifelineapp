@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/font_size"
+        android:title="Font Size">
+        <menu>
+            <item android:id="@+id/font_size_small"
+                android:title="Small" />
+            <item android:id="@+id/font_size_medium"
+                android:title="Medium" />
+            <item android:id="@+id/font_size_large"
+                android:title="Large" />
+        </menu>
+    </item>
+    <item android:title="Colorblind Safe" android:checkable="true" android:id="@+id/colorblind_toggle"></item>
+</menu>

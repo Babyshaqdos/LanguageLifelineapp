@@ -18,7 +18,6 @@ public class Welcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome); //This line will change the displayed UI to whichever layout file you specify
-
         //If you have any buttons, text fields, pictures, etc on the UI then this is where you will want to first create and instantiate the object
         //For example if we have a button on our UI it may look something like this
         /*

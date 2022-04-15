@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+<!--    <color name="purple_200">#FFBB86FC</color>-->
+<!--    <color name="purple_500">#FF6200EE</color>-->
+<!--    <color name="purple_700">#FF3700B3</color>-->
+<!--    <color name="teal_200">#FF03DAC5</color>-->
+<!--    <color name="teal_700">#FF018786</color>-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="Key_Lime">#d9ed92</color>
-    <color name="Yellow_Green_Crayola">#b5e48c</color>
-    <color name="Granny_Smith_Apple">#99d98c</color>
-    <color name="Ocean_Green">#76c893</color>
-    <color name="Keppel">#52b69a</color>
-    <color name="Viridian_Green">#478388</color>
-    <color name="Blue_Munsell">#168aad</color>
-    <color name="Celadon_Blue">#1a759f</color>
-    <color name="Lapis_Lazuli">#1e6091</color>
-    <color name="Yale_Blue">#184e77</color>
-    <color name="Gray_1">#707070</color>
-    <color name="Red_no">#A95C68</color>
+<!--    <color name="Key_Lime">#d9ed92</color>-->
+<!--    <color name="Yellow_Green_Crayola">#b5e48c</color>-->
+<!--    <color name="Granny_Smith_Apple">#99d98c</color>-->
+<!--    <color name="Ocean_Green">#76c893</color>-->
+<!--    <color name="Keppel">#52b69a</color>-->
+<!--    <color name="Viridian_Green">#478388</color>-->
+<!--    <color name="Blue_Munsell">#168aad</color>-->
+<!--    <color name="Lapis_Lazuli">#1e6091</color>-->
+<!--    <color name="Yale_Blue">#184e77</color>-->
+<!--    <color name="Gray_1">#707070</color>-->
+<!--    <color name="Red_no">#A95C68</color>-->
+
+    <color name="primary">#1a759f</color>
+    <color name="secondary">#478388</color>
+    <color name="accept">#76c893</color>
+    <color name="deny">#A95C68</color>
+    <color name="textPrimary">#FFFFFFFF</color>
+    <color name="textSecondary">#707070</color>
+    <color name="textDark">#000000</color>
+
+    <color name="cbPrimary">#0C7BDC</color>
+    <color name="cbSecondary">#FFC20A</color>
 </resources>

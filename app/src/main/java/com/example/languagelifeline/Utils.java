@@ -5,36 +5,57 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-//Helper class to make use of Toast messages
 public class Utils {
-    private static int _currentTheme = R.style.AppThemeMedium;
+    public static boolean isColorblind = true;
+    private static FontTheme currentFontTheme = FontTheme.LARGE;
+    private static int _currentTheme = R.style.CBAppThemeLarge;
     private static int _currentIndex = 0;
-    //Function to display a toast message
-    public static void showToast(Context context, String message){
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show(); //Toast is the little message that will pop up at the bottom of the screen, main way of debugging in Android studio
-    }
 
-    public static void changeToTheme(Activity activity, FontTheme fontTheme) {
+    public static void changeToTheme(AppCompatActivity activity, FontTheme fontTheme) {
+        changeToTheme(activity, fontTheme, Utils.isColorblind);
+    }
+    public static void changeToTheme(AppCompatActivity activity, boolean isColorblind) {
+        changeToTheme(activity, Utils.currentFontTheme, isColorblind);
+    }
+    public static void changeToTheme(AppCompatActivity activity, FontTheme fontTheme, boolean isColorblind) {
         // Set the font size for the entire app
-        switch (fontTheme) {
-            case SMALL:
-                _currentTheme = R.style.AppThemeSmall;
-                _currentIndex = 0;
-                break;
-            case MEDIUM:
-                _currentTheme = R.style.AppThemeMedium;
-                _currentIndex = 1;
-                break;
-            case LARGE:
-                _currentTheme = R.style.AppThemeLarge;
-                _currentIndex = 2;
-                break;
+        Utils.isColorblind = isColorblind;
+        Utils.currentFontTheme = fontTheme;
+        if (Utils.isColorblind) {
+            switch (fontTheme) {
+                case SMALL:
+                    _currentTheme = R.style.CBAppThemeSmall;
+                    _currentIndex = 0;
+                    break;
+                case MEDIUM:
+                    _currentTheme = R.style.CBAppThemeMedium;
+                    _currentIndex = 1;
+                    break;
+                case LARGE:
+                    _currentTheme = R.style.CBAppThemeLarge;
+                    _currentIndex = 2;
+                    break;
+            }
+        } else {
+            switch (fontTheme) {
+                case SMALL:
+                    _currentTheme = R.style.AppThemeSmall;
+                    _currentIndex = 0;
+                    break;
+                case MEDIUM:
+                    _currentTheme = R.style.AppThemeMedium;
+                    _currentIndex = 1;
+                    break;
+                case LARGE:
+                    _currentTheme = R.style.AppThemeLarge;
+                    _currentIndex = 2;
+                    break;
+            }
         }
 
-        // Reopen the window that was already open
-        activity.finish();
-        activity.startActivity(new Intent(activity, activity.getClass()));
+        activity.recreate();
     }
 
     public static void onActivityCreateSetTheme(Activity activity) {

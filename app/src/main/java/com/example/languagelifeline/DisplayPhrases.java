@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -41,7 +44,6 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     public TextView patientText;
     public Context context;
     public TextView providerText;
-    final Utils toasty = new Utils();
     private audioFiles audioFiles;
     public Map<String, Integer> audioMap = new HashMap<>();
     public ImageButton repeatBtn;
@@ -52,8 +54,40 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
     public Button didntmeantoBtn;
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem colorblindOption = menu.findItem(R.id.colorblind_toggle);
+        colorblindOption.setChecked(Utils.isColorblind);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.font_size_small:
+                Utils.changeToTheme(DisplayPhrases.this, FontTheme.SMALL);
+                return true;
+            case R.id.font_size_medium:
+                Utils.changeToTheme(DisplayPhrases.this, FontTheme.MEDIUM);
+                return true;
+            case R.id.font_size_large:
+                Utils.changeToTheme(DisplayPhrases.this, FontTheme.LARGE);
+                return true;
+            case R.id.colorblind_toggle:
+                Utils.changeToTheme(DisplayPhrases.this, !Utils.isColorblind);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override //onCreate is called as soon as this activity is started
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,34 +148,6 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
             audioFiles = new audioFiles("English");
             setLanguage("English");
         }
-        Spinner textSizeDropdown = (Spinner) findViewById(R.id.textSizeDropdown);
-        textSizeDropdown.setSelection(Utils.getCurrentIndex(), false);
-        textSizeDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.println(i);
-                if (Utils.getCurrentIndex() == i) return;
-                System.out.println("Option:" + i + " selected!");
-                switch (i) {
-                    case 0:
-                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.SMALL);
-                        break;
-                    case 1:
-                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.MEDIUM);
-                        break;
-                    case 2:
-                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.LARGE);;
-                        break;
-                    default:
-                        Utils.changeToTheme(DisplayPhrases.this, FontTheme.MEDIUM);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
        // setRecyclerViewPhrases();
         //Instantiate the button to send the user back to the home page to select a new language
@@ -162,7 +168,7 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
         int checkedId = materialButtonToggleGroup.getCheckedButtonId();
         MaterialButton patientBtn = materialButtonToggleGroup.findViewById(R.id.patientBtn);
         MaterialButton providerBtn = materialButtonToggleGroup.findViewById(R.id.providerBtn);
-        patientBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+        patientBtn.setBackgroundColor(getResources().getColor(R.color.primary));
         providerBtn.setBackgroundColor(Color.DKGRAY);
 
         //Add the onclick listener to the switch
@@ -172,12 +178,12 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 //Checks which button is checked and populates the button phrases based on the switch position
                 //Default position is the patient
                 if (group.getCheckedButtonId() == R.id.patientBtn) {
-                    patientBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+                    patientBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     providerBtn.setBackgroundColor(Color.DKGRAY);
                     //toasty.showToast(group.getContext(), "Debug message, patient is checked");
                     user = "Patient";
                     //Checks the current language then populates the buttons with the appropriate language phrases
-                    switch (currentLanguage) {
+                    switch (DisplayPhrases.this.currentLanguage) {
                         case "English":
                             phrases = engPhrase.getPatientPhrases();
                             translatedPhrase = engPhrase.getPatientPhrases();
@@ -205,10 +211,10 @@ public class DisplayPhrases extends AppCompatActivity implements PhraseUI {
                 }
                 else if (group.getCheckedButtonId() == R.id.providerBtn){
                    // toasty.showToast(group.getContext(), "Debug message, provider is checked");
-                    providerBtn.setBackgroundColor(getResources().getColor(R.color.Yale_Blue));
+                    providerBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     patientBtn.setBackgroundColor(Color.DKGRAY);
                     user = "Provider";
-                        switch(currentLanguage){
+                        switch(DisplayPhrases.this.currentLanguage){
                             case "English":
                                 phrases = engPhrase.getProviderPhrases();
                                 translatedPhrase = engPhrase.getProviderPhrases();
