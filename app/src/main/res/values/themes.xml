@@ -30,7 +30,7 @@
     <style name="AppThemeLarge" parent="Theme.LanguageLifeline">
         <item name="android:textViewStyle">@android:style/TextAppearance.Large</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="CBAppThemeSmall" parent="AppThemeSmall">
