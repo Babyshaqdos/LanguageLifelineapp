@@ -1,0 +1,49 @@
+What is your name?
+Does someone with you today speak English?
+My name is
+I am your day-shift nurse
+I am your night-shift nurse
+I am your doctor
+I am your nursing assistant
+Would you like me to call a chaplain?
+Do you need to use the toilet?
+Would you like me to wipe you?
+Are you hungry?
+Are you thirsty?
+Would you like the door shut?
+Do you understand?
+I will be right back
+Can I give you your sponge bath now?
+Are you ready to sit up in the chair?
+Are you ready to take a walk?
+Do you want a new gown?
+I am going to put on your socks now
+Do you have pain?
+Can you point to where your pain is?
+What is your pain level?
+Would you like ice?
+Does your pain keep you from sleeping?
+Can I call someone for you?
+How can I help you?
+Are you comfortable?
+Would you like me to move you in bed?
+It is time to turn you in bed
+I am here with your meal
+Would you like me to open anything for you?
+Is the room too warm?
+Is the room too cold?
+I will be right back to assist you
+I am here with your medications
+I am sorry, I was delayed
+I will send the nurse in to assist you
+The doctor will be right with you
+I will check your vitals now
+I’m going to take your blood pressure now
+I will check your temperature now
+I am here to draw your blood
+I am here for respiratory therapy
+I am here to give you a breathing treatment
+I am here to take you for an X-Ray
+I am here to take you for an MRI
+Are you breathing okay?
+Are you having trouble breathing?

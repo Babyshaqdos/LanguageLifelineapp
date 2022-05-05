@@ -1,0 +1,31 @@
+Necesito usar el baño.
+Me gustaría comida.
+Me gustaría agua.
+¿Qué es eso?
+El dolor es mejor.
+El dolor es peor.
+El dolor es el mismo.
+Me duele el estómago.
+Me siento mareado/a.
+No me siento bien.
+Me siento débil
+Tengo dificultad para respirar.
+Tengo náusea.
+Creo que tengo fiebre. ¿Puede verificar mi temperatura?
+¿Puede verificar mis signos vitales?
+¿Puede cargar el teléfono?
+Necesito llamar a alguien por teléfono.
+¿Puede cerrar las persianas?
+¿Puede abrir las persianas?
+No puedo dormir.
+Quiero medicina para ayudarme a dormir.
+¿Puedo tener una manta?
+¿Puedo tener una almohada?
+¿Puedo mudarme a la silla?
+¿Puede bajar la cabecera de la cama?
+¿Puede levantar la cabecera de la cama?
+¿Puedo cambiarme de posición?
+Me siento incómodo.
+Quiero hacer eso yo mismo.
+Quiero eso más tarde.
+Necesito la enfermera.

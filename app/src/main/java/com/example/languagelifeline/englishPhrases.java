@@ -12,8 +12,8 @@ public class englishPhrases {
 
     //Constructor to set the local phrases as the passed in engPhrases (may not be useful for now but may come in handy for the addition of phrases later)
     public englishPhrases(List<String> engPhrases){
-
     }
+
 
     //Constructor that intializes the englishPhrases arraylist
     public englishPhrases(){

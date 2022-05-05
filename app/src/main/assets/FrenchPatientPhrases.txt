@@ -1,0 +1,31 @@
+J’ai besoin d’utiliser la toilette.
+Je voudrais de la nourriture.
+Je voudrais de la boisson.
+Qu'est-ce que c'est?
+Je me sens moins de douleur.
+Je me sens plus de douleur.
+Ma douleur ne change pas.
+J’ai mal à l’estomac.
+J’ai la tête qui tourne.
+Je ne me sens pas bien.
+Je me sens faible.
+J’ai la difficulté avec la respiration.
+J’ai la nausée.
+Je pense que j'ai de la fièvre. Pouvez-vous prendre ma température?
+Pouvez-vous prendre mes signes vitaux?
+Pouvez-vous recharger mon téléphone?
+J’ai besoin de passer un coup de téléphone.
+Pouvez-vous fermer les stores?
+Pouvez-vous ouvrir les stores?
+Je ne peux pas dormir.
+Je voudrais un médicament pour dormir.
+Puis-je avoir un oreiller?
+Puis-je avoir une couverture?
+Puis-je aller à la chaise?
+Puis-je lever la tête?
+Puis-je baisser la tête?
+Puis-je changer ma position?
+Je me sens mal à l’aise.
+Je voudrais faire ça moi-même.
+Je voudrais ça plus tard.
+J’ai besoin de infirmier?

@@ -1,0 +1,49 @@
+Comment vous-appelez vous?
+Il y a quelqu'un ici qui parle l’anglais?
+Je m’appelle...
+Je suis votre infirmière pendant la journée.
+Je suis votre infirmière pendant la nuit.
+Je suis votre médecin.
+Je suis votre infirmière auxiliaire.
+Est-ce que vous voulez j'appelle un chapelain?
+Vous avez besoin d’utiliser la toilette?
+Devrais-je vous essuyer?
+Vous avez faim?
+Vous avez soif?
+Devrais-je fermer la porte?
+Vous comprenez?
+Je reviens tout de suite.
+Puis-je donner ton lavage à l'éponge?
+Etes-vous prêt pour se redresser dans la chaise?
+Etes-vous prêt pour une promenade?
+Voulez-vous une nouvelle blouse d'hôpital?
+Je mets vos chaussettes maintenant.
+Vous avez de la douleur?
+Pouvez vous montrer du doigt votre douleur?
+Quel est votre niveau de douleur?
+Vous voudrais des glaçons?
+Vous ne pouvez pas dormir parce que votre douleur?
+Puis-je appeler quelqu'un pour vous?
+Comment puis-je vous aider?
+Êtes-vous confortable?
+Voudriez-vous bouger en lit?
+C’est le temps pour vous tourner en lit.
+Je suis ici avec votre repas.
+Voudriez-vous ouvrir quelque chose?
+Est-ce que la température est trop chaude pour vous?
+Est-ce que la température est trop froide pour vous?
+Je rentrai pour vous assister.
+Je suis ici avec vos médicaments.
+Je suis désolée, je suis en retard.
+Je dirai l’infirmier de vous assister.
+Le médecin viendrai très vite.
+Je vérifierai vos signes vitaux maintenant.
+Je prends votre tension artérielle maintenant.
+Je vérifierai votre température maintenant.
+Je suis ici pour faire couler le sang pour vous.
+Je suis ici pour la thérapie respiratoire.
+Je suis ici pour vous donner un traitement pour respiration.
+Je suis ici pour un radiographie.
+Je suis ici pour un IRM.
+Êtes vous respirer bien?
+Avez-vous un problème respiratoire?

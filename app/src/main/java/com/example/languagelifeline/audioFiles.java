@@ -1,5 +1,9 @@
 package com.example.languagelifeline;
 
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +20,11 @@ public class audioFiles {
     Map<String, Integer> frenchPatientAudio = new HashMap<String, Integer>();
     Map<String, Integer> frenchProviderAudio = new HashMap<String, Integer>();
 
+    Context context;
+
     //Constructor that takes the language the provider needs translated as input
-    public audioFiles(String translateToLanguage){
+    public audioFiles(String translateToLanguage, Context context){
+        context = context;
         //Add english patient audio files to hash map, will want to rework this over break/next semester to allow for addition of new phrases and audio files for 2nd half requirements
        engPatientAudio.put("I need to use the toilet", R.raw.i_need_to_use_the_toilet);
        engPatientAudio.put("I would like some food", R.raw.i_would_like_some_food);
@@ -298,6 +305,24 @@ public class audioFiles {
         engProviderAudio.put("Are you breathing okay?", R.raw.respiras_bien);
         engProviderAudio.put("Are you having troubles breathing?", R.raw.tiene_dificultad_para_respirar);
     }
+/*
+    public boolean addToEngPatientAudio(String filepath){
+        int[] engPatient = {R.raw.i_need_to_use_the_toilet, R.raw.i_would_like_some_food, R.raw.i_would_like_some_water, R.raw.what_is_this, R.raw.my_pain_is_better, R.raw.my_pain_is_worse, R.raw.my_pain_is_the_same, R.raw.my_stomach_hurts, R.raw.i_am_dizzy, R.raw.i_do_not_feel_good, R.raw.i_feel_weak, R.raw.i_am_having_trouble_breathing, R.raw.i_feel_nauseous, R.raw.i_think_i_have_a_fever_can_you_check_my_temperature, R.raw.can_you_check_my_vitals, R.raw.can_you_charge_my_phone, R.raw.i_need_to_make_a_phone_call, R.raw.can_you_close_my_blinds, R.raw.can_you_open_my_blinds, R.raw.i_cannot_sleep, R.raw.i_would_like_some_medication_to_help_me_sleep, R.raw.can_i_have_a_pillow, R.raw.can_i_have_a_blanket, R.raw.can_i_move_to_the_chair, R.raw.can_i_raise_my_head, R.raw.can_i_lower_my_head, R.raw.can_i_change_my_position, R.raw.i_feel_uncomfortable, R.raw.i_would_like_to_do_that_myself, R.raw.i_would_like_that_later, R.raw.may_i_see_the_nurse};
+        int complete = 0;
+        while(complete < engPatient.length){
+
+            complete++;
+
+        }
+        AssetFileDescriptor assetFileDescriptor = context.getResources().openRawResourceFd(engPatient[complete]);
+
+
+
+
+
+        return true;
+    }
+*/
 
 
     //Getter functions to return the hash maps

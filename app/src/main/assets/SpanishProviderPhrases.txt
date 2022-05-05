@@ -1,0 +1,49 @@
+¿Como se llama?
+¿Hay alguien consigo hoy que habla inglés?
+Me llamo...
+Soy su enfermera hoy.
+Soy su enfermera esta noche.
+Soy su doctor.
+Soy su asistente de enfermería.
+¿Quiere que llame a un capellán?
+Necesita usar el baño?
+¿Puedo ayudarse a limpiar?
+Tiene hambre?
+Tiene sed?
+Quiere que yo cierre la puerta?
+¿Entiende?
+Regreso en un momento
+¿Puedo darte un baño de esponja ahora?
+¿Está preparado para sentirse en la silla?
+¿Está preparado para caminar?
+¿Quiere una bata hospitalaria nueva?
+Voy a ponerse los calcetines ahora.
+¿Puede señalar dónde le duele?
+¿Tiene dolor?
+¿Cuál es su nivel de dolor?
+¿Quieres hielo?
+¿Es su dolor tan grave que no puede dormir?
+¿Puedo ayudarle a llamar a alguien por teléfono?
+¿Cómo puedo ayudarle?
+¿Está cómoda?
+¿Quiere que le coloque en otra posición?
+Es hora de darle vuelta.
+Tengo su comida aquí
+¿Quiere que abra alguna cosa para usted?
+¿Es demasiado cálido el cuarto?
+¿Es demasiado frío el cuarto?
+Regreso en un momento para ayudarle.
+Estoy aquí con sus medicinas.
+Lo siento, fui retrasado.
+Enviaré la enfermera para ayudarle.
+El doctor estará consigo muy pronto.
+Voy a verificar los signos vitales ahora.
+Voy a medir su presión arterial.
+Voy a verificar su temperatura.
+Estoy aquí para extraer sangre
+Estoy aquí para darle terapia respiratoria.
+Estoy aquí para darle un tratamiento respiratorio.
+Estoy aquí para llevarle a un examen de rayos x.
+Estoy aquí para llevarle a un examen de RMN.
+¿Respiras bien?
+¿Tiene dificultad para respirar?
